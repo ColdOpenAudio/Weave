@@ -1,0 +1,9 @@
+{
+  "description": "Preset for hoodie panel layout with taller tile repeats.",
+  "naming": {
+    "pattern": "hoodie-panel-{index}"
+  },
+  "tile": {
+    "repeat_y": 2
+  }
+}

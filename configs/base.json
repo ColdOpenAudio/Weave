@@ -1,0 +1,29 @@
+{
+  "spec_version": "1.0",
+  "naming": {
+    "pattern": "{preset}-{index}",
+    "index_pad": 3
+  },
+  "tile": {
+    "repeat_x": 4,
+    "repeat_y": 1
+  },
+  "generators": {
+    "primary": {
+      "type": "placeholder",
+      "enabled": false
+    },
+    "secondary": {
+      "type": "placeholder",
+      "enabled": false
+    }
+  },
+  "exports": {
+    "formats": [],
+    "include_metadata": true
+  },
+  "packaging": {
+    "mode": "none",
+    "bundle_name": "{preset}"
+  }
+}
