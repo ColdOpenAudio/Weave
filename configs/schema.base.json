@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://weave.local/schemas/base.json",
+  "title": "Weave Base Config",
+  "type": "object",
+  "additionalProperties": false,
+  "$comment": "Non-enforceable constraints are documented in docs/SPEC.md.",
+  "properties": {
+    "repeat_x": {
+      "type": "integer",
+      "const": 4,
+      "description": "Fixed repeat count for the X axis."
+    }
+  },
+  "required": ["repeat_x"]
+}
