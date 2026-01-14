@@ -6,6 +6,8 @@ import { generateCompositeSVG } from './generators/composition.js';
 import { exportComposition, ExportOptions } from './export/index.js';
 import { createPackage } from './packaging/index.js';
 import type { PaletteColor, PaletteFormat } from './packaging/palette.js';
+import { selectProjectFolder } from './cli/dialogs.js';
+import { showMainMenu } from './cli/menu.js';
 
 function fail(msg: string, code = 1): never {
   console.error(msg);
@@ -45,6 +47,8 @@ async function run() {
     console.log('  node dist/index.js validate-preset <presetPath>');
     console.log('  node dist/index.js validate-effective --base <basePath> --preset <presetPath>');
     console.log('  node dist/index.js generate --config <configPath> --seed <number> [--output-dir <dir>] [--export <format>] [--color-policy <policy>] [--dpi <number>] [--separations]');
+    console.log('  node dist/index.js init');
+    console.log('  node dist/index.js menu');
     console.log('  node dist/index.js package --config <configPath> --seed <number> [--output-dir <dir>] [--output-zip <path>] [--file <path>] [--palette <path>] [--palette-formats <list>] [--include-print-spec] [--deterministic] [--cleanup]');
     console.log('  node dist/index.js help');
     process.exit(0);
@@ -395,6 +399,21 @@ async function run() {
     });
 
     console.log(`Created package: ${outputZipPath}`);
+    process.exit(0);
+  }
+
+  if (cmd === 'init') {
+    const selected = selectProjectFolder('Select or create a project folder for exports');
+    const resolved = path.resolve(selected);
+    fs.mkdirSync(resolved, { recursive: true });
+    console.log(`Project folder created: ${resolved}`);
+    console.log(`Use this path as --output-dir for generate/package.`);
+    await showMainMenu({ projectDir: resolved });
+    process.exit(0);
+  }
+
+  if (cmd === 'menu') {
+    await showMainMenu();
     process.exit(0);
   }
 
