@@ -16,7 +16,9 @@ const weaveConfig: WeaveConfig = {
   height: 100,
   seed: 12345,
   eventDensity: 0.02,
-  minFeatureMm: 1
+  minFeatureMm: 1,
+  xWrap: true,
+  yWrap: false
 };
 
 const tileSvg = generateTileSVG(tileConfig);
@@ -38,5 +40,7 @@ else console.log('Not deterministic');
 const eventCount = (overlaySvg.match(/<circle|<line|<rect/g) || []).length;
 console.log(`Events generated: ${eventCount}`);
 
-// Constraint: min size (assume all >=1)
-console.log('Min feature enforced (manual check)');
+// Test with Y wrap
+const weaveConfigY: WeaveConfig = { ...weaveConfig, yWrap: true };
+const overlayY = generateWeaveOverlay(weaveConfigY);
+console.log('Y wrap enabled, events:', (overlayY.match(/<circle|<line|<rect/g) || []).length);

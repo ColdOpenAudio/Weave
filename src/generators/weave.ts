@@ -1,5 +1,7 @@
 // Weave overlay system for fabric events
 
+import { wrapEvents } from './seam';
+
 export interface EventType {
   name: string;
   svgTemplate: string; // SVG path or element template, e.g., <circle ... />
@@ -12,6 +14,8 @@ export interface WeaveConfig {
   seed: number;
   eventDensity: number; // e.g., 0.02 for 2% coverage
   minFeatureMm: number; // from constraints
+  xWrap: boolean;
+  yWrap: boolean;
 }
 
 export interface Event {
@@ -90,7 +94,10 @@ export function generateEvents(config: WeaveConfig): Event[] {
 
 // 2.4 Overlay events on tile base
 export function generateWeaveOverlay(config: WeaveConfig): string {
-  const events = generateEvents(config);
+  let events = generateEvents(config);
+  // 3.1-3.3 Seam logic
+  const seamConfig = { width: config.width, height: config.height, xWrap: config.xWrap, yWrap: config.yWrap };
+  events = wrapEvents(events, seamConfig);
   const rand = new SeededRandom(config.seed + 4); // for event rendering
   let svg = `<g id="weave-overlay">`;
   for (const event of events) {
