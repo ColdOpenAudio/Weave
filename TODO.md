@@ -56,23 +56,23 @@
 ## Generator Implementation (Deferred Until After Step 12)
 
 ### Core tile engine (corduroy + realism)
-- [ ] Implement single-wale rib field (shadow/mid/highlight rib profile)
-- [ ] Implement nap micro-streak layer (subtle, controlled)
-- [ ] Implement drift bands (macro tonal variation)
+- [x] Implement single-wale rib field (shadow/mid/highlight rib profile)
+- [x] Implement nap micro-streak layer (subtle, controlled)
+- [x] Implement drift bands (macro tonal variation)
 
 ### Weave overlay system
-- [ ] Implement event types (weft pops, stitch interrupts, basket patches)
-- [ ] Implement fray/notch details (min-feature constraints enforced)
-- [ ] Implement deterministic event placement (seed-driven)
+- [x] Implement event types (weft pops, stitch interrupts, basket patches)
+- [x] Implement fray/notch details (min-feature constraints enforced)
+- [x] Implement deterministic event placement (seed-driven)
 
 ### Seam logic
-- [ ] Implement X wrap duplication for events crossing tile edges
-- [ ] Optional Y wrap mode toggle (off by default for hoodie panels)
+- [x] Implement X wrap duplication for events crossing tile edges
+- [x] Optional Y wrap mode toggle (off by default for hoodie panels)
 
 ### Composition outputs
-- [ ] Emit master tile SVG
-- [ ] Emit 4-wide composite SVG (no new randomness in composition)
-- [ ] Emit flattened SVG variant (no `<pattern>`)
+- [x] Emit master tile SVG
+- [x] Emit 4-wide composite SVG (no new randomness in composition)
+- [x] Emit flattened SVG variant (no `<pattern>`)
 
 ---
 
@@ -123,8 +123,8 @@
 # Milestones
 
 - **Milestone 1: Spec Lock (Completed)** - Steps 1-9 implemented and validated. Base config schema, types, and validation are secure and fail-closed. Repository structure and tooling (lint, format, build) are established.
-- **Milestone 2: Preset and Effective Validation** - Steps 10-12: Implement preset schema, merge rules, and effective config validation. Ensure secure override-only presets with strict allowlists.
-- **Milestone 3: Core Generator Implementation** - Implement corduroy and weave generators with tile engine, event placement, and seam logic. Achieve deterministic, seed-driven outputs.
+- **Milestone 2: Preset and Effective Validation (Completed)** - Steps 10-12: Implement preset schema, merge rules, and effective config validation. Ensure secure override-only presets with strict allowlists.
+- **Milestone 3: Core Generator Implementation (Completed)** - Implement corduroy and weave generators with tile engine, event placement, and seam logic. Achieve deterministic, seed-driven outputs.
 - **Milestone 4: Export Matrix** - Add vector and raster export capabilities, including SVG, PDF, TIFF, PNG variants. Implement color policies and optional separations.
 - **Milestone 5: Production Packaging** - Implement ZIP packaging with manifest, checksums, and palette exports. Ensure deterministic folder structures.
 - **Milestone 6: Quality Assurance** - Add seam verification, snapshot testing, complexity guards, and robust error handling.
@@ -132,16 +132,38 @@
 
 # Backlog
 
+- Integrate core generators into CLI `generate` command for full pattern output.
+- Add snapshot testing for SVG outputs to automate visual validation.
+- Implement caching for seeded random generation to improve performance.
 - Investigate alternative JSON schema validators if AJV performance becomes an issue.
 - Explore web-based preview tool for generated patterns.
 - Add internationalization support for CLI messages.
-- Implement caching for repeated validations to improve performance.
 - Research integration with design software (e.g., Adobe plugins).
+- Add wave function collapse algorithm to src/algorithms/ (placeholder exists)
+- Implement `generate` CLI command (config path, seed override, output dir)
+- Add complexity guards: max shapes per tile, max nodes per path, min feature size checks
+- Add seam verification swatch generation (2×2 or 4×2)
+- Add deterministic snapshot testing for known seeds
+- Add robust error taxonomy and fail-closed behavior across all commands
+- Add `batch` command (seed list generation, manifest CSV)
+- Add `validate` umbrella command (base/preset/effective)
+- Finalize docs/SPEC.md as the authoritative contract
+- Add production guidance: bleed, safe zones, print method considerations
+- Add examples for hoodie panel vs all-over-print presets
+- Vector exports: SVG variants, PDF/X-1a, PDF/X-4, EPS
+- Raster exports: TIFF 300, PNG 300, JPG previews, repeat swatches
+- Optional separations: spot sets + combined proof
+- Color policies documented and enforced (working vs web conversion)
+- Define deterministic folder structure and naming scheme
+- Generate `manifest.json` (seed, spec_version, effective config snapshot, file list)
+- Generate `checksums.sha256`
+- Generate palette exports (ASE/GPL/JSON)
+- Include print spec / README handoff docs
 
 # Risks
 
 - **Schema Validation Reliability**: AJV library updates could introduce breaking changes; pin version and monitor for updates.
-- **Merge Logic Complexity**: Deep-merge implementation for presets must be thoroughly tested to prevent security vulnerabilities or unexpected overrides.
+- **Merge Logic Complexity**: Deep-merge implementation for presets tested and secure; monitor for edge cases.
 - **Performance Scaling**: Large tile generations or complex patterns may hit memory/CPU limits; implement guards and profiling.
 - **Deterministic Seed Behavior**: Ensure seed-driven randomness is truly reproducible across environments and Node.js versions.
 - **External Dependencies**: Reliance on npm packages (AJV, TypeScript) could be affected by supply chain issues; consider vendoring critical code.
@@ -154,5 +176,5 @@
 - **Validation**: AJV >= 8.12.0 for JSON schema validation
 - **Code Quality**: ESLint >= 8.0.0 with @typescript-eslint plugins, Prettier >= 2.0.0
 - **Version Control**: Git, GitHub for repository and CI/CD
-- **Testing**: Manual verification scripts (verify.sh, verify.ps1); future: Jest or similar for unit tests
+- **Testing**: Manual verification scripts (verify.sh, verify.ps1); custom test scripts for SVG generation and validation
 - **Documentation**: Markdown for specs, potential future use of Docusaurus or similar for docs site
