@@ -26,7 +26,11 @@ export interface PackageRunOptions {
   paletteFormats: PaletteFormat[];
 }
 
-export async function generateFromConfig(config: any, options: GenerateRunOptions): Promise<void> {
+export interface GenerateResult {
+  svgPath: string;
+}
+
+export async function generateFromConfig(config: any, options: GenerateRunOptions): Promise<GenerateResult> {
   const cfg = { ...config, seed: options.seed };
   const compConfig = {
     tile: {
@@ -69,6 +73,8 @@ export async function generateFromConfig(config: any, options: GenerateRunOption
     const ext = options.exportFormat === 'jpg' ? 'jpg' : options.exportFormat;
     console.log(`Exported to ${options.exportFormat}: ${path.join(options.outputDir, `fabric-${options.seed}.${ext}`)}`);
   }
+
+  return { svgPath };
 }
 
 export async function packageFromConfig(config: any, options: PackageRunOptions): Promise<void> {

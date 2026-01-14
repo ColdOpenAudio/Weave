@@ -3,6 +3,8 @@ import path from 'path';
 import readline from 'readline';
 import { selectProjectFolder } from './dialogs.js';
 import { generateFromConfig, packageFromConfig } from './run.js';
+import type { GenerateRunOptions, GenerateResult } from './run.js';
+import { startPreviewServer } from './preview.js';
 
 export interface MenuOption {
   key: number;
@@ -14,6 +16,32 @@ interface MenuState {
   configPath: string | null;
   projectDir: string | null;
   dirty: boolean;
+  presets: PresetRegistry;
+  preview: PreviewSettings;
+  previewServer: PreviewServerState | null;
+  previewInFlight: boolean;
+  previewQueuedConfig: any | null;
+}
+
+interface PresetRegistry {
+  paths: string[];
+  defaultPath: string | null;
+}
+
+interface PreviewSettings {
+  enabled: boolean;
+  intervalMs: number;
+  seed: number;
+  outputDir: string;
+  exportFormat?: string;
+  colorPolicy: 'web' | 'print';
+  dpi: number;
+  enableSeparations: boolean;
+}
+
+interface PreviewServerState {
+  url: string;
+  notify: (filePath: string) => void;
 }
 
 const MAIN_MENU_OPTIONS: MenuOption[] = [
@@ -30,11 +58,26 @@ const MAIN_MENU_OPTIONS: MenuOption[] = [
 
 export async function showMainMenu(options?: { projectDir?: string }): Promise<void> {
   const basePath = path.resolve(process.cwd(), 'configs', 'base.json');
+  const presets = loadPresetRegistry(options?.projectDir ?? null);
+  const preview: PreviewSettings = {
+    enabled: true,
+    intervalMs: 0,
+    seed: 1,
+    outputDir: options?.projectDir ?? './output',
+    colorPolicy: 'web',
+    dpi: 300,
+    enableSeparations: false
+  };
   const state: MenuState = {
     config: readJson(basePath),
     configPath: basePath,
     projectDir: options?.projectDir ?? null,
-    dirty: false
+    dirty: false,
+    presets,
+    preview,
+    previewServer: null,
+    previewInFlight: false,
+    previewQueuedConfig: null
   };
 
   while (true) {
@@ -76,16 +119,15 @@ export async function showMainMenu(options?: { projectDir?: string }): Promise<v
 }
 
 async function editProjectNaming(state: MenuState): Promise<void> {
-  const options: MenuOption[] = [
-    { key: 1, label: `Project name (${state.config.naming.project_name})` },
-    { key: 2, label: `Version (${state.config.naming.version})` },
-    { key: 3, label: `Colorway (${state.config.naming.colorway})` },
-    { key: 4, label: `Pattern template (${state.config.naming.pattern})` },
-    { key: 5, label: `Index padding (${state.config.naming.index_pad})` },
-    { key: 6, label: 'Back' }
-  ];
-
   while (true) {
+    const options: MenuOption[] = [
+      { key: 1, label: `Project name (${state.config.naming.project_name})` },
+      { key: 2, label: `Version (${state.config.naming.version})` },
+      { key: 3, label: `Colorway (${state.config.naming.colorway})` },
+      { key: 4, label: `Pattern template (${state.config.naming.pattern})` },
+      { key: 5, label: `Index padding (${state.config.naming.index_pad})` },
+      { key: 6, label: 'Back' }
+    ];
     const choice = await selectMenuOption(options, 1, buildHeader(state, 'Project & Naming'));
     if (choice.key === 6) return;
 
@@ -107,8 +149,9 @@ async function editProjectNaming(state: MenuState): Promise<void> {
         state.dirty = true;
         break;
       case 5:
-        state.config.naming.index_pad = await promptNumber('Index padding', 0);
-        state.dirty = true;
+        await updateNumberField(state, 'Index padding', 0, () => state.config.naming.index_pad, (cfg, value) => {
+          cfg.naming.index_pad = value;
+        });
         break;
       default:
         break;
@@ -117,34 +160,37 @@ async function editProjectNaming(state: MenuState): Promise<void> {
 }
 
 async function editTileRepeat(state: MenuState): Promise<void> {
-  const options: MenuOption[] = [
-    { key: 1, label: `Tile width (${state.config.tile.tile_width})` },
-    { key: 2, label: `Tile height (${state.config.tile.tile_height})` },
-    { key: 3, label: `Repeat X (${state.config.tile.repeat_x})` },
-    { key: 4, label: `Repeat Y (${state.config.tile.repeat_y})` },
-    { key: 5, label: 'Back' }
-  ];
-
   while (true) {
+    const options: MenuOption[] = [
+      { key: 1, label: `Tile width (${state.config.tile.tile_width})` },
+      { key: 2, label: `Tile height (${state.config.tile.tile_height})` },
+      { key: 3, label: `Repeat X (${state.config.tile.repeat_x})` },
+      { key: 4, label: `Repeat Y (${state.config.tile.repeat_y})` },
+      { key: 5, label: 'Back' }
+    ];
     const choice = await selectMenuOption(options, 1, buildHeader(state, 'Tile & Repeat'));
     if (choice.key === 5) return;
 
     switch (choice.key) {
       case 1:
-        state.config.tile.tile_width = await promptNumber('Tile width', 1);
-        state.dirty = true;
+        await updateNumberField(state, 'Tile width', 1, () => state.config.tile.tile_width, (cfg, value) => {
+          cfg.tile.tile_width = value;
+        });
         break;
       case 2:
-        state.config.tile.tile_height = await promptNumber('Tile height', 1);
-        state.dirty = true;
+        await updateNumberField(state, 'Tile height', 1, () => state.config.tile.tile_height, (cfg, value) => {
+          cfg.tile.tile_height = value;
+        });
         break;
       case 3:
-        state.config.tile.repeat_x = await promptNumber('Repeat X', 1);
-        state.dirty = true;
+        await updateNumberField(state, 'Repeat X', 1, () => state.config.tile.repeat_x, (cfg, value) => {
+          cfg.tile.repeat_x = value;
+        });
         break;
       case 4:
-        state.config.tile.repeat_y = await promptNumber('Repeat Y', 1);
-        state.dirty = true;
+        await updateNumberField(state, 'Repeat Y', 1, () => state.config.tile.repeat_y, (cfg, value) => {
+          cfg.tile.repeat_y = value;
+        });
         break;
       default:
         break;
@@ -153,14 +199,13 @@ async function editTileRepeat(state: MenuState): Promise<void> {
 }
 
 async function editGenerators(state: MenuState): Promise<void> {
-  const options: MenuOption[] = [
-    { key: 1, label: `Corduroy enabled (${boolLabel(state.config.generators.corduroy.enabled)})` },
-    { key: 2, label: `Weave enabled (${boolLabel(state.config.generators.weave.enabled)})` },
-    { key: 3, label: `Palette enabled (${boolLabel(state.config.generators.palette.enabled)})` },
-    { key: 4, label: 'Back' }
-  ];
-
   while (true) {
+    const options: MenuOption[] = [
+      { key: 1, label: `Corduroy enabled (${boolLabel(state.config.generators.corduroy.enabled)})` },
+      { key: 2, label: `Weave enabled (${boolLabel(state.config.generators.weave.enabled)})` },
+      { key: 3, label: `Palette enabled (${boolLabel(state.config.generators.palette.enabled)})` },
+      { key: 4, label: 'Back' }
+    ];
     const choice = await selectMenuOption(options, 1, buildHeader(state, 'Generators'));
     if (choice.key === 4) return;
 
@@ -184,22 +229,21 @@ async function editGenerators(state: MenuState): Promise<void> {
 }
 
 async function editExports(state: MenuState): Promise<void> {
-  const options: MenuOption[] = [
-    { key: 1, label: `Preset (${state.config.exports.preset})` },
-    { key: 2, label: `Formats (${state.config.exports.formats.join(', ') || 'none'})` },
-    { key: 3, label: `Include metadata (${boolLabel(state.config.exports.include_metadata)})` },
-    {
-      key: 4,
-      label: `Include SVG (${boolLabel(state.config.exports.toggles.include_svg)})`
-    },
-    {
-      key: 5,
-      label: `Include PNG (${boolLabel(state.config.exports.toggles.include_png)})`
-    },
-    { key: 6, label: 'Back' }
-  ];
-
   while (true) {
+    const options: MenuOption[] = [
+      { key: 1, label: `Preset (${state.config.exports.preset})` },
+      { key: 2, label: `Formats (${state.config.exports.formats.join(', ') || 'none'})` },
+      { key: 3, label: `Include metadata (${boolLabel(state.config.exports.include_metadata)})` },
+      {
+        key: 4,
+        label: `Include SVG (${boolLabel(state.config.exports.toggles.include_svg)})`
+      },
+      {
+        key: 5,
+        label: `Include PNG (${boolLabel(state.config.exports.toggles.include_png)})`
+      },
+      { key: 6, label: 'Back' }
+    ];
     const choice = await selectMenuOption(options, 1, buildHeader(state, 'Exports'));
     if (choice.key === 6) return;
 
@@ -231,13 +275,12 @@ async function editExports(state: MenuState): Promise<void> {
 }
 
 async function editPackaging(state: MenuState): Promise<void> {
-  const options: MenuOption[] = [
-    { key: 1, label: `Mode (${state.config.packaging.mode})` },
-    { key: 2, label: `Bundle name (${state.config.packaging.bundle_name})` },
-    { key: 3, label: 'Back' }
-  ];
-
   while (true) {
+    const options: MenuOption[] = [
+      { key: 1, label: `Mode (${state.config.packaging.mode})` },
+      { key: 2, label: `Bundle name (${state.config.packaging.bundle_name})` },
+      { key: 3, label: 'Back' }
+    ];
     const choice = await selectMenuOption(options, 1, buildHeader(state, 'Packaging'));
     if (choice.key === 3) return;
 
@@ -257,24 +300,37 @@ async function editPackaging(state: MenuState): Promise<void> {
 }
 
 async function editConstraints(state: MenuState): Promise<void> {
-  const options: MenuOption[] = [
-    { key: 1, label: `Min feature (mm) (${state.config.constraints.min_feature_mm})` },
-    { key: 2, label: `Max shapes per tile (${state.config.constraints.max_shapes_per_tile})` },
-    { key: 3, label: 'Back' }
-  ];
-
   while (true) {
+    const options: MenuOption[] = [
+      { key: 1, label: `Min feature (mm) (${state.config.constraints.min_feature_mm})` },
+      { key: 2, label: `Max shapes per tile (${state.config.constraints.max_shapes_per_tile})` },
+      { key: 3, label: 'Back' }
+    ];
     const choice = await selectMenuOption(options, 1, buildHeader(state, 'Constraints'));
     if (choice.key === 3) return;
 
     switch (choice.key) {
       case 1:
-        state.config.constraints.min_feature_mm = await promptNumber('Min feature (mm)', 0);
-        state.dirty = true;
+        await updateNumberField(
+          state,
+          'Min feature (mm)',
+          0,
+          () => state.config.constraints.min_feature_mm,
+          (cfg, value) => {
+            cfg.constraints.min_feature_mm = value;
+          }
+        );
         break;
       case 2:
-        state.config.constraints.max_shapes_per_tile = await promptNumber('Max shapes per tile', 1);
-        state.dirty = true;
+        await updateNumberField(
+          state,
+          'Max shapes per tile',
+          1,
+          () => state.config.constraints.max_shapes_per_tile,
+          (cfg, value) => {
+            cfg.constraints.max_shapes_per_tile = value;
+          }
+        );
         break;
       default:
         break;
@@ -283,15 +339,28 @@ async function editConstraints(state: MenuState): Promise<void> {
 }
 
 async function previewAndRun(state: MenuState): Promise<void> {
-  const options: MenuOption[] = [
-    { key: 1, label: 'Generate' },
-    { key: 2, label: 'Package' },
-    { key: 3, label: 'Back' }
-  ];
-
   while (true) {
+    const options: MenuOption[] = [
+      { key: 1, label: 'Generate' },
+      { key: 2, label: 'Package' },
+      { key: 3, label: `Live preview (${boolLabel(state.preview.enabled)})` },
+      { key: 4, label: `Preview interval ms (${state.preview.intervalMs})` },
+      { key: 5, label: `Preview seed (${state.preview.seed})` },
+      { key: 6, label: `Preview output dir (${state.preview.outputDir})` },
+      {
+        key: 7,
+        label: `Preview format (${state.preview.exportFormat ?? 'none'})`
+      },
+      { key: 8, label: `Preview color policy (${state.preview.colorPolicy})` },
+      { key: 9, label: `Preview DPI (${state.preview.dpi})` },
+      {
+        key: 10,
+        label: `Preview separations (${boolLabel(state.preview.enableSeparations)})`
+      },
+      { key: 11, label: 'Back' }
+    ];
     const choice = await selectMenuOption(options, 1, buildHeader(state, 'Preview & Run'));
-    if (choice.key === 3) return;
+    if (choice.key === 11) return;
 
     switch (choice.key) {
       case 1:
@@ -300,6 +369,34 @@ async function previewAndRun(state: MenuState): Promise<void> {
       case 2:
         await runPackage(state);
         break;
+      case 3:
+        state.preview.enabled = await promptBoolean('Live preview enabled');
+        break;
+      case 4:
+        state.preview.intervalMs = await promptNumber('Preview interval ms', 0, state.preview.intervalMs);
+        break;
+      case 5:
+        state.preview.seed = await promptNumber('Preview seed', 1, state.preview.seed);
+        break;
+      case 6:
+        state.preview.outputDir = await promptString('Preview output dir', state.preview.outputDir);
+        break;
+      case 7: {
+        const format = await promptString('Preview format (optional)', state.preview.exportFormat ?? '');
+        state.preview.exportFormat = format || undefined;
+        break;
+      }
+      case 8:
+        state.preview.colorPolicy = (await promptString('Preview color policy (web/print)', state.preview.colorPolicy)) as
+          | 'web'
+          | 'print';
+        break;
+      case 9:
+        state.preview.dpi = await promptNumber('Preview DPI', 1, state.preview.dpi);
+        break;
+      case 10:
+        state.preview.enableSeparations = await promptBoolean('Preview separations');
+        break;
       default:
         break;
     }
@@ -307,18 +404,20 @@ async function previewAndRun(state: MenuState): Promise<void> {
 }
 
 async function saveLoadMenu(state: MenuState): Promise<void> {
-  const options: MenuOption[] = [
-    { key: 1, label: 'Save config' },
-    { key: 2, label: 'Save preset' },
-    { key: 3, label: 'Load config' },
-    { key: 4, label: 'Load preset' },
-    { key: 5, label: `Set project folder (${state.projectDir ?? 'unset'})` },
-    { key: 6, label: 'Back' }
-  ];
-
   while (true) {
+    const options: MenuOption[] = [
+      { key: 1, label: 'Save config' },
+      { key: 2, label: 'Save preset' },
+      { key: 3, label: 'Load config' },
+      { key: 4, label: 'Add preset file' },
+      { key: 5, label: 'Load preset from list' },
+      { key: 6, label: 'Set default preset' },
+      { key: 7, label: 'Remove preset from list' },
+      { key: 8, label: `Set project folder (${state.projectDir ?? 'unset'})` },
+      { key: 9, label: 'Back' }
+    ];
     const choice = await selectMenuOption(options, 1, buildHeader(state, 'Save / Load'));
-    if (choice.key === 6) return;
+    if (choice.key === 9) return;
 
     switch (choice.key) {
       case 1:
@@ -331,9 +430,18 @@ async function saveLoadMenu(state: MenuState): Promise<void> {
         await loadConfig(state);
         break;
       case 4:
-        await loadPreset(state);
+        await addPresetPath(state);
         break;
       case 5:
+        await loadPresetFromList(state);
+        break;
+      case 6:
+        await setDefaultPreset(state);
+        break;
+      case 7:
+        await removePresetFromList(state);
+        break;
+      case 8:
         await chooseProjectDir(state);
         break;
       default:
@@ -343,14 +451,14 @@ async function saveLoadMenu(state: MenuState): Promise<void> {
 }
 
 async function runGenerate(state: MenuState): Promise<void> {
-  const seed = await promptNumber('Seed', 1);
-  const outputDir = await promptString('Output dir', state.projectDir ?? './output');
+  const seed = await promptNumber('Seed', 1, state.preview.seed);
+  const outputDir = await promptString('Output dir', state.preview.outputDir);
   const exportFormat = await promptString('Export format (optional)', '');
-  const colorPolicy = (await promptString('Color policy (web/print)', 'web')) as 'web' | 'print';
-  const dpi = await promptNumber('DPI', 1, 300);
+  const colorPolicy = (await promptString('Color policy (web/print)', state.preview.colorPolicy)) as 'web' | 'print';
+  const dpi = await promptNumber('DPI', 1, state.preview.dpi);
   const enableSeparations = await promptBoolean('Enable separations');
 
-  await generateFromConfig(state.config, {
+  const result = await generateFromConfig(state.config, {
     seed,
     outputDir,
     exportFormat: exportFormat || undefined,
@@ -358,6 +466,17 @@ async function runGenerate(state: MenuState): Promise<void> {
     dpi,
     enableSeparations
   });
+
+  state.preview.seed = seed;
+  state.preview.outputDir = outputDir;
+  state.preview.exportFormat = exportFormat || undefined;
+  state.preview.colorPolicy = colorPolicy;
+  state.preview.dpi = dpi;
+  state.preview.enableSeparations = enableSeparations;
+
+  if (state.preview.enabled) {
+    await notifyPreview(state, result.svgPath);
+  }
 }
 
 async function runPackage(state: MenuState): Promise<void> {
@@ -406,17 +525,11 @@ async function loadConfig(state: MenuState): Promise<void> {
   console.log(`Loaded config: ${loadPath}\n`);
 }
 
-async function loadPreset(state: MenuState): Promise<void> {
-  const loadPath = await promptString('Load preset path', './preset.json');
-  const preset = readJson(loadPath);
-  state.config = { ...state.config, ...preset };
-  state.dirty = true;
-  console.log(`Loaded preset: ${loadPath}\n`);
-}
-
 async function chooseProjectDir(state: MenuState): Promise<void> {
   const selected = selectProjectFolder('Select or create a project folder for exports');
   state.projectDir = path.resolve(selected);
+  state.preview.outputDir = state.projectDir;
+  state.presets = loadPresetRegistry(state.projectDir);
   console.log(`Project folder set: ${state.projectDir}\n`);
 }
 
@@ -473,6 +586,13 @@ async function selectMenuOption(options: MenuOption[], columns: number, header?:
         return;
       }
       if (key && key.name === 'return') {
+        process.stdin.off('keypress', onKeypress);
+        cleanup();
+        resolve(options[selectedIndex]);
+        return;
+      }
+
+      if (key && key.name === 'space') {
         process.stdin.off('keypress', onKeypress);
         cleanup();
         resolve(options[selectedIndex]);
@@ -598,6 +718,206 @@ function promptLine(prompt: string): Promise<string> {
   });
 }
 
+async function updateNumberField(
+  state: MenuState,
+  label: string,
+  min: number,
+  getValue: () => number,
+  setValue: (config: any, value: number) => void
+): Promise<void> {
+  const current = getValue();
+  const result = await promptNumberLive(label, min, current, state, async (draft) => {
+    if (!state.preview.enabled) {
+      return;
+    }
+    const draftConfig = cloneConfig(state.config);
+    setValue(draftConfig, draft);
+    await queuePreview(state, draftConfig);
+  });
+  setValue(state.config, result);
+  state.dirty = true;
+  if (state.preview.enabled) {
+    await queuePreview(state, state.config);
+  }
+}
+
+async function promptNumberLive(
+  label: string,
+  min: number,
+  fallback: number,
+  state: MenuState,
+  onPreview: (draft: number) => Promise<void>
+): Promise<number> {
+  return new Promise((resolve) => {
+    const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+    readline.emitKeypressEvents(process.stdin, rl);
+    if (process.stdin.isTTY) {
+      process.stdin.setRawMode(true);
+    }
+
+    let buffer = String(fallback);
+    let timer: NodeJS.Timeout | null = null;
+
+    const cleanup = () => {
+      if (timer) clearTimeout(timer);
+      if (process.stdin.isTTY) {
+        process.stdin.setRawMode(false);
+      }
+      process.stdin.off('keypress', onKeypress);
+      rl.close();
+    };
+
+    const render = () => {
+      process.stdout.write('\x1b[2J\x1b[0f');
+      process.stdout.write(
+        `${label}\nValue: ${buffer}\nSpace = preview, Enter = save, Esc = cancel, Up/Down = nudge\n`
+      );
+      if (state.preview.enabled) {
+        process.stdout.write(`Preview interval: ${state.preview.intervalMs} ms\n`);
+      } else {
+        process.stdout.write('Preview disabled\n');
+      }
+    };
+
+    const schedulePreview = (draft: number) => {
+      if (!state.preview.enabled || state.preview.intervalMs <= 0) {
+        return;
+      }
+      if (timer) clearTimeout(timer);
+      timer = setTimeout(() => {
+        onPreview(draft).catch(() => undefined);
+      }, state.preview.intervalMs);
+    };
+
+    const commit = () => {
+      const parsed = Number.parseFloat(buffer);
+      if (!Number.isNaN(parsed) && parsed >= min) {
+        cleanup();
+        resolve(parsed);
+      } else {
+        process.stdout.write(`\nInvalid number. Must be >= ${min}.\n`);
+        setTimeout(render, 500);
+      }
+    };
+
+    const cancel = () => {
+      cleanup();
+      resolve(fallback);
+    };
+
+    const onKeypress = (_: string, key: readline.Key) => {
+      if (key && key.ctrl && key.name === 'c') {
+        cleanup();
+        process.exit(0);
+      }
+
+      if (key && key.name === 'return') {
+        commit();
+        return;
+      }
+      if (key && key.name === 'escape') {
+        cancel();
+        return;
+      }
+      if (key && key.name === 'space') {
+        const parsed = Number.parseFloat(buffer);
+        if (!Number.isNaN(parsed) && parsed >= min) {
+          onPreview(parsed).catch(() => undefined);
+        }
+        return;
+      }
+      if (key && key.name === 'up') {
+        const parsed = Number.parseFloat(buffer) || 0;
+        buffer = String(parsed + 1);
+        render();
+        schedulePreview(parsed + 1);
+        return;
+      }
+      if (key && key.name === 'down') {
+        const parsed = Number.parseFloat(buffer) || 0;
+        const next = Math.max(min, parsed - 1);
+        buffer = String(next);
+        render();
+        schedulePreview(next);
+        return;
+      }
+      if (key && key.name === 'backspace') {
+        buffer = buffer.slice(0, -1) || '0';
+        render();
+        const parsed = Number.parseFloat(buffer);
+        if (!Number.isNaN(parsed)) {
+          schedulePreview(parsed);
+        }
+        return;
+      }
+
+      if (key && key.sequence && /^[0-9.]$/.test(key.sequence)) {
+        buffer = buffer === '0' ? key.sequence : `${buffer}${key.sequence}`;
+        render();
+        const parsed = Number.parseFloat(buffer);
+        if (!Number.isNaN(parsed)) {
+          schedulePreview(parsed);
+        }
+      }
+    };
+
+    process.stdin.on('keypress', onKeypress);
+    render();
+  });
+}
+
+function cloneConfig(config: any): any {
+  return JSON.parse(JSON.stringify(config));
+}
+
+async function queuePreview(state: MenuState, configOverride: any): Promise<void> {
+  if (state.previewInFlight) {
+    state.previewQueuedConfig = configOverride;
+    return;
+  }
+  state.previewInFlight = true;
+  try {
+    const result = await runPreview(state, configOverride);
+    if (result?.svgPath) {
+      await notifyPreview(state, result.svgPath);
+    }
+  } finally {
+    state.previewInFlight = false;
+    if (state.previewQueuedConfig) {
+      const queued = state.previewQueuedConfig;
+      state.previewQueuedConfig = null;
+      await queuePreview(state, queued);
+    }
+  }
+}
+
+async function runPreview(state: MenuState, configOverride: any): Promise<GenerateResult | null> {
+  if (!state.preview.enabled) {
+    return null;
+  }
+  const options: GenerateRunOptions = {
+    seed: state.preview.seed,
+    outputDir: state.preview.outputDir,
+    exportFormat: state.preview.exportFormat,
+    colorPolicy: state.preview.colorPolicy,
+    dpi: state.preview.dpi,
+    enableSeparations: state.preview.enableSeparations
+  };
+  return generateFromConfig(configOverride, options);
+}
+
+async function notifyPreview(state: MenuState, svgPath: string): Promise<void> {
+  if (!state.preview.enabled) {
+    return;
+  }
+  if (!state.previewServer) {
+    const server = await startPreviewServer({ initialFile: svgPath, openBrowser: true });
+    state.previewServer = { url: server.url, notify: server.notify };
+    console.log(`Preview server: ${server.url}`);
+  }
+  state.previewServer.notify(svgPath);
+}
+
 function readJson(filePath: string): any {
   const raw = fs.readFileSync(filePath, 'utf8');
   return JSON.parse(raw);
@@ -615,5 +935,125 @@ function buildHeader(state: MenuState, title: string): string {
   const configLabel = state.configPath ?? 'unsaved';
   const projectLabel = state.projectDir ?? 'unset';
   const dirty = state.dirty ? '*' : '';
-  return `${title}\nConfig: ${configLabel}${dirty}\nProject Dir: ${projectLabel}\n`;
+  const defaultPreset = state.presets.defaultPath ? path.basename(state.presets.defaultPath) : 'none';
+  return `${title}\nConfig: ${configLabel}${dirty}\nProject Dir: ${projectLabel}\nDefault Preset: ${defaultPreset}\n`;
+}
+
+async function addPresetPath(state: MenuState): Promise<void> {
+  if (!ensureProjectDir(state)) return;
+  const loadPath = await promptString('Preset file path', './preset.json');
+  const resolved = path.resolve(loadPath);
+  if (!fs.existsSync(resolved)) {
+    console.log(`Preset not found: ${resolved}\n`);
+    return;
+  }
+  if (!state.presets.paths.includes(resolved)) {
+    state.presets.paths.push(resolved);
+  }
+  savePresetRegistry(state);
+  console.log(`Added preset: ${resolved}\n`);
+}
+
+async function loadPresetFromList(state: MenuState): Promise<void> {
+  if (!ensureProjectDir(state)) return;
+  if (state.presets.paths.length === 0) {
+    console.log('No presets registered.\n');
+    return;
+  }
+  const options = state.presets.paths.map((presetPath, index) => ({
+    key: index + 1,
+    label: `${path.basename(presetPath)}${presetPath === state.presets.defaultPath ? ' (default)' : ''}`
+  }));
+  const choice = await selectMenuOption(options, 1, buildHeader(state, 'Load Preset'));
+  const selectedPath = state.presets.paths[choice.key - 1];
+  if (selectedPath) {
+    loadPresetIntoConfig(state, selectedPath);
+  }
+}
+
+async function setDefaultPreset(state: MenuState): Promise<void> {
+  if (!ensureProjectDir(state)) return;
+  if (state.presets.paths.length === 0) {
+    console.log('No presets registered.\n');
+    return;
+  }
+  const options = state.presets.paths.map((presetPath, index) => ({
+    key: index + 1,
+    label: path.basename(presetPath)
+  }));
+  const choice = await selectMenuOption(options, 1, buildHeader(state, 'Set Default Preset'));
+  const selectedPath = state.presets.paths[choice.key - 1];
+  if (selectedPath) {
+    state.presets.defaultPath = selectedPath;
+    savePresetRegistry(state);
+    console.log(`Default preset set: ${selectedPath}\n`);
+  }
+}
+
+async function removePresetFromList(state: MenuState): Promise<void> {
+  if (!ensureProjectDir(state)) return;
+  if (state.presets.paths.length === 0) {
+    console.log('No presets registered.\n');
+    return;
+  }
+  const options = state.presets.paths.map((presetPath, index) => ({
+    key: index + 1,
+    label: path.basename(presetPath)
+  }));
+  const choice = await selectMenuOption(options, 1, buildHeader(state, 'Remove Preset'));
+  const removed = state.presets.paths.splice(choice.key - 1, 1)[0];
+  if (removed && state.presets.defaultPath === removed) {
+    state.presets.defaultPath = null;
+  }
+  savePresetRegistry(state);
+  console.log(`Removed preset: ${removed}\n`);
+}
+
+function loadPresetIntoConfig(state: MenuState, presetPath: string): void {
+  const preset = readJson(presetPath);
+  state.config = { ...state.config, ...preset };
+  state.dirty = true;
+  console.log(`Loaded preset: ${presetPath}\n`);
+}
+
+function ensureProjectDir(state: MenuState): boolean {
+  if (!state.projectDir) {
+    console.log('Project directory is not set. Use "Set project folder" first.\n');
+    return false;
+  }
+  return true;
+}
+
+function loadPresetRegistry(projectDir: string | null): PresetRegistry {
+  if (!projectDir) {
+    return { paths: [], defaultPath: null };
+  }
+  const registryPath = presetRegistryPath(projectDir);
+  if (!fs.existsSync(registryPath)) {
+    return { paths: [], defaultPath: null };
+  }
+  try {
+    const data = readJson(registryPath);
+    const paths = Array.isArray(data.presets) ? data.presets.map((entry: string) => path.resolve(entry)) : [];
+    const defaultPath = typeof data.default === 'string' ? path.resolve(data.default) : null;
+    return { paths, defaultPath };
+  } catch {
+    return { paths: [], defaultPath: null };
+  }
+}
+
+function savePresetRegistry(state: MenuState): void {
+  if (!state.projectDir) {
+    return;
+  }
+  const registryPath = presetRegistryPath(state.projectDir);
+  const payload = {
+    presets: state.presets.paths,
+    default: state.presets.defaultPath
+  };
+  fs.writeFileSync(registryPath, JSON.stringify(payload, null, 2));
+}
+
+function presetRegistryPath(projectDir: string): string {
+  return path.join(projectDir, '.weave-presets.json');
 }
