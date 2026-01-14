@@ -1,0 +1,79 @@
+{
+  "seed": 123,
+  "spec_version": "1.0",
+  "effective_config": {
+    "spec_version": "1.0",
+    "naming": {
+      "project_name": "weave-project",
+      "version": "0.1.0",
+      "colorway": "default",
+      "pattern": "{preset}-{index}",
+      "index_pad": 3
+    },
+    "tile": {
+      "tile_width": 100,
+      "tile_height": 100,
+      "repeat_x": 4,
+      "repeat_y": 1
+    },
+    "generators": {
+      "corduroy": {
+        "type": "placeholder",
+        "enabled": false
+      },
+      "weave": {
+        "type": "placeholder",
+        "enabled": false
+      },
+      "palette": {
+        "type": "placeholder",
+        "enabled": false
+      }
+    },
+    "exports": {
+      "preset": "hoodie-panel",
+      "formats": [],
+      "include_metadata": true,
+      "toggles": {
+        "include_svg": true,
+        "include_png": false
+      }
+    },
+    "packaging": {
+      "mode": "none",
+      "bundle_name": "{preset}"
+    },
+    "constraints": {
+      "min_feature_mm": 1,
+      "max_shapes_per_tile": 1000
+    }
+  },
+  "files": [
+    {
+      "path": "assets/fabric-123.jpg",
+      "type": "jpg"
+    },
+    {
+      "path": "assets/fabric-123.png",
+      "type": "png"
+    },
+    {
+      "path": "assets/fabric-123.svg",
+      "type": "svg"
+    },
+    {
+      "path": "assets/fabric-123.tiff",
+      "type": "tiff"
+    },
+    {
+      "path": "assets/fabric-123.webp",
+      "type": "webp"
+    },
+    {
+      "path": "print-spec.md",
+      "type": "print-spec"
+    }
+  ],
+  "generated_at": "1970-01-01T00:00:00.000Z",
+  "version": "1.0"
+}

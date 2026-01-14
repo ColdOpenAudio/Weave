@@ -1,0 +1,821 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="100" viewBox="0 0 400 100"><g transform="translate(0, 0)"><g xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+    <g id="drift-bands"><rect x="0" y="0" width="100" height="33.333333333333336" fill="#000000" opacity="0.13902777777777778"/><rect x="0" y="33.333333333333336" width="100" height="33.333333333333336" fill="#000000" opacity="0.13962534293552814"/><rect x="0" y="66.66666666666667" width="100" height="33.333333333333336" fill="#000000" opacity="0.29757887517146775"/></g>
+    <g id="rib-field"><rect x="-0.76920438957476" y="0" width="2" height="100" fill="url(#rib-gradient-0)"/><defs><linearGradient id="rib-gradient-0" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="2.0526148834019207" y="0" width="2" height="100" fill="url(#rib-gradient-1)"/><defs><linearGradient id="rib-gradient-1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="3.793672839506173" y="0" width="2" height="100" fill="url(#rib-gradient-2)"/><defs><linearGradient id="rib-gradient-2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="5.373722565157751" y="0" width="2" height="100" fill="url(#rib-gradient-3)"/><defs><linearGradient id="rib-gradient-3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="7.4162208504801095" y="0" width="2" height="100" fill="url(#rib-gradient-4)"/><defs><linearGradient id="rib-gradient-4" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="10.692772633744855" y="0" width="2" height="100" fill="url(#rib-gradient-5)"/><defs><linearGradient id="rib-gradient-5" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="11.90090877914952" y="0" width="2" height="100" fill="url(#rib-gradient-6)"/><defs><linearGradient id="rib-gradient-6" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="14.775197187928669" y="0" width="2" height="100" fill="url(#rib-gradient-7)"/><defs><linearGradient id="rib-gradient-7" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="16.531687242798355" y="0" width="2" height="100" fill="url(#rib-gradient-8)"/><defs><linearGradient id="rib-gradient-8" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="17.64568758573388" y="0" width="2" height="100" fill="url(#rib-gradient-9)"/><defs><linearGradient id="rib-gradient-9" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="20.962877229080934" y="0" width="2" height="100" fill="url(#rib-gradient-10)"/><defs><linearGradient id="rib-gradient-10" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="22.14375" y="0" width="2" height="100" fill="url(#rib-gradient-11)"/><defs><linearGradient id="rib-gradient-11" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="23.44139231824417" y="0" width="2" height="100" fill="url(#rib-gradient-12)"/><defs><linearGradient id="rib-gradient-12" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="26.812594307270235" y="0" width="2" height="100" fill="url(#rib-gradient-13)"/><defs><linearGradient id="rib-gradient-13" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="28.362294238683127" y="0" width="2" height="100" fill="url(#rib-gradient-14)"/><defs><linearGradient id="rib-gradient-14" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="30.121356310013716" y="0" width="2" height="100" fill="url(#rib-gradient-15)"/><defs><linearGradient id="rib-gradient-15" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="31.157681755829906" y="0" width="2" height="100" fill="url(#rib-gradient-16)"/><defs><linearGradient id="rib-gradient-16" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="34.02065329218107" y="0" width="2" height="100" fill="url(#rib-gradient-17)"/><defs><linearGradient id="rib-gradient-17" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="36.51891289437586" y="0" width="2" height="100" fill="url(#rib-gradient-18)"/><defs><linearGradient id="rib-gradient-18" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="38.831472908093275" y="0" width="2" height="100" fill="url(#rib-gradient-19)"/><defs><linearGradient id="rib-gradient-19" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="39.95216049382716" y="0" width="2" height="100" fill="url(#rib-gradient-20)"/><defs><linearGradient id="rib-gradient-20" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="41.467395404663925" y="0" width="2" height="100" fill="url(#rib-gradient-21)"/><defs><linearGradient id="rib-gradient-21" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="44.66730109739369" y="0" width="2" height="100" fill="url(#rib-gradient-22)"/><defs><linearGradient id="rib-gradient-22" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="46.99014917695473" y="0" width="2" height="100" fill="url(#rib-gradient-23)"/><defs><linearGradient id="rib-gradient-23" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="47.80013717421125" y="0" width="2" height="100" fill="url(#rib-gradient-24)"/><defs><linearGradient id="rib-gradient-24" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="49.49849965706447" y="0" width="2" height="100" fill="url(#rib-gradient-25)"/><defs><linearGradient id="rib-gradient-25" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="51.96795267489712" y="0" width="2" height="100" fill="url(#rib-gradient-26)"/><defs><linearGradient id="rib-gradient-26" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="54.350471536351165" y="0" width="2" height="100" fill="url(#rib-gradient-27)"/><defs><linearGradient id="rib-gradient-27" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="56.158401920438955" y="0" width="2" height="100" fill="url(#rib-gradient-28)"/><defs><linearGradient id="rib-gradient-28" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="57.718904320987654" y="0" width="2" height="100" fill="url(#rib-gradient-29)"/><defs><linearGradient id="rib-gradient-29" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="59.95173182441701" y="0" width="2" height="100" fill="url(#rib-gradient-30)"/><defs><linearGradient id="rib-gradient-30" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="61.48034122085048" y="0" width="2" height="100" fill="url(#rib-gradient-31)"/><defs><linearGradient id="rib-gradient-31" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="63.07633744855967" y="0" width="2" height="100" fill="url(#rib-gradient-32)"/><defs><linearGradient id="rib-gradient-32" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="65.43725137174211" y="0" width="2" height="100" fill="url(#rib-gradient-33)"/><defs><linearGradient id="rib-gradient-33" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="68.29765089163237" y="0" width="2" height="100" fill="url(#rib-gradient-34)"/><defs><linearGradient id="rib-gradient-34" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="70.8735853909465" y="0" width="2" height="100" fill="url(#rib-gradient-35)"/><defs><linearGradient id="rib-gradient-35" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="71.64036351165981" y="0" width="2" height="100" fill="url(#rib-gradient-36)"/><defs><linearGradient id="rib-gradient-36" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="73.44366426611796" y="0" width="2" height="100" fill="url(#rib-gradient-37)"/><defs><linearGradient id="rib-gradient-37" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="75.94398148148149" y="0" width="2" height="100" fill="url(#rib-gradient-38)"/><defs><linearGradient id="rib-gradient-38" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="77.39440157750343" y="0" width="2" height="100" fill="url(#rib-gradient-39)"/><defs><linearGradient id="rib-gradient-39" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="79.7517146776406" y="0" width="2" height="100" fill="url(#rib-gradient-40)"/><defs><linearGradient id="rib-gradient-40" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="81.12085905349794" y="0" width="2" height="100" fill="url(#rib-gradient-41)"/><defs><linearGradient id="rib-gradient-41" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="83.53269890260631" y="0" width="2" height="100" fill="url(#rib-gradient-42)"/><defs><linearGradient id="rib-gradient-42" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="86.0551354595336" y="0" width="2" height="100" fill="url(#rib-gradient-43)"/><defs><linearGradient id="rib-gradient-43" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="87.23755144032921" y="0" width="2" height="100" fill="url(#rib-gradient-44)"/><defs><linearGradient id="rib-gradient-44" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="90.88858882030178" y="0" width="2" height="100" fill="url(#rib-gradient-45)"/><defs><linearGradient id="rib-gradient-45" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="91.18725994513032" y="0" width="2" height="100" fill="url(#rib-gradient-46)"/><defs><linearGradient id="rib-gradient-46" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="93.12739197530864" y="0" width="2" height="100" fill="url(#rib-gradient-47)"/><defs><linearGradient id="rib-gradient-47" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="96.29540466392318" y="0" width="2" height="100" fill="url(#rib-gradient-48)"/><defs><linearGradient id="rib-gradient-48" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="97.98142146776406" y="0" width="2" height="100" fill="url(#rib-gradient-49)"/><defs><linearGradient id="rib-gradient-49" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs></g>
+    <g id="nap-layer"><line x1="15.526834705075446" y1="36.22170781893004" x2="14.240041130911237" y2="37.13351629705239" stroke="#f0f0f0" stroke-width="0.5" opacity="0.3"/><line x1="15.435956790123456" y1="90.96622085048011" x2="15.429591888383529" y2="87.0276586066357" stroke="#f0f0f0" stroke-width="0.5" opacity="0.3"/><line x1="56.90886488340192" y1="30.484396433470508" x2="54.60924688594006" y2="29.078934680383075" stroke="#f0f0f0" stroke-width="0.5" opacity="0.3"/><line x1="79.45173182441701" y1="1.6898148148148149" x2="80.87102899147743" y2="0.08419746588075028" stroke="#f0f0f0" stroke-width="0.5" opacity="0.3"/><line x1="52.20036008230453" y1="36.6812414266118" x2="48.400269144179624" y2="36.75248676737252" stroke="#f0f0f0" stroke-width="0.5" opacity="0.3"/><line x1="96.14240397805213" y1="41.631515775034295" x2="94.33285458238169" y2="40.61440274810597" stroke="#f0f0f0" stroke-width="0.5" opacity="0.3"/><line x1="73.00625857338821" y1="52.34310699588477" x2="72.25068256812477" y2="55.175156107080355" stroke="#f0f0f0" stroke-width="0.5" opacity="0.3"/><line x1="40.81661522633745" y1="56.47033607681756" x2="38.511236781050535" y2="57.56446242414767" stroke="#f0f0f0" stroke-width="0.5" opacity="0.3"/><line x1="76.11668381344307" y1="82.40826474622772" x2="75.52056638550012" y2="81.59037657098408" stroke="#f0f0f0" stroke-width="0.5" opacity="0.3"/><line x1="62.8570816186557" y1="54.84825102880658" x2="61.167082025943124" y2="57.25574308063962" stroke="#f0f0f0" stroke-width="0.5" opacity="0.3"/></g>
+    
+  <g id="weave-overlay"><circle cx="3.4036351165980796" cy="78.3423353909465" r="2.663871742112483" fill="#000" opacity="0.5"/><circle cx="3.6213991769547325" cy="3.7658607681755827" r="1.948062414266118" fill="#000" opacity="0.5"/></g></g></g><g transform="translate(100, 0)"><g xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+    <g id="drift-bands"><rect x="0" y="0" width="100" height="33.333333333333336" fill="#000000" opacity="0.13902777777777778"/><rect x="0" y="33.333333333333336" width="100" height="33.333333333333336" fill="#000000" opacity="0.13962534293552814"/><rect x="0" y="66.66666666666667" width="100" height="33.333333333333336" fill="#000000" opacity="0.29757887517146775"/></g>
+    <g id="rib-field"><rect x="-0.76920438957476" y="0" width="2" height="100" fill="url(#rib-gradient-0)"/><defs><linearGradient id="rib-gradient-0" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="2.0526148834019207" y="0" width="2" height="100" fill="url(#rib-gradient-1)"/><defs><linearGradient id="rib-gradient-1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="3.793672839506173" y="0" width="2" height="100" fill="url(#rib-gradient-2)"/><defs><linearGradient id="rib-gradient-2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="5.373722565157751" y="0" width="2" height="100" fill="url(#rib-gradient-3)"/><defs><linearGradient id="rib-gradient-3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="7.4162208504801095" y="0" width="2" height="100" fill="url(#rib-gradient-4)"/><defs><linearGradient id="rib-gradient-4" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="10.692772633744855" y="0" width="2" height="100" fill="url(#rib-gradient-5)"/><defs><linearGradient id="rib-gradient-5" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="11.90090877914952" y="0" width="2" height="100" fill="url(#rib-gradient-6)"/><defs><linearGradient id="rib-gradient-6" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="14.775197187928669" y="0" width="2" height="100" fill="url(#rib-gradient-7)"/><defs><linearGradient id="rib-gradient-7" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="16.531687242798355" y="0" width="2" height="100" fill="url(#rib-gradient-8)"/><defs><linearGradient id="rib-gradient-8" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="17.64568758573388" y="0" width="2" height="100" fill="url(#rib-gradient-9)"/><defs><linearGradient id="rib-gradient-9" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="20.962877229080934" y="0" width="2" height="100" fill="url(#rib-gradient-10)"/><defs><linearGradient id="rib-gradient-10" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="22.14375" y="0" width="2" height="100" fill="url(#rib-gradient-11)"/><defs><linearGradient id="rib-gradient-11" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="23.44139231824417" y="0" width="2" height="100" fill="url(#rib-gradient-12)"/><defs><linearGradient id="rib-gradient-12" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="26.812594307270235" y="0" width="2" height="100" fill="url(#rib-gradient-13)"/><defs><linearGradient id="rib-gradient-13" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="28.362294238683127" y="0" width="2" height="100" fill="url(#rib-gradient-14)"/><defs><linearGradient id="rib-gradient-14" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="30.121356310013716" y="0" width="2" height="100" fill="url(#rib-gradient-15)"/><defs><linearGradient id="rib-gradient-15" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="31.157681755829906" y="0" width="2" height="100" fill="url(#rib-gradient-16)"/><defs><linearGradient id="rib-gradient-16" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="34.02065329218107" y="0" width="2" height="100" fill="url(#rib-gradient-17)"/><defs><linearGradient id="rib-gradient-17" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="36.51891289437586" y="0" width="2" height="100" fill="url(#rib-gradient-18)"/><defs><linearGradient id="rib-gradient-18" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="38.831472908093275" y="0" width="2" height="100" fill="url(#rib-gradient-19)"/><defs><linearGradient id="rib-gradient-19" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="39.95216049382716" y="0" width="2" height="100" fill="url(#rib-gradient-20)"/><defs><linearGradient id="rib-gradient-20" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="41.467395404663925" y="0" width="2" height="100" fill="url(#rib-gradient-21)"/><defs><linearGradient id="rib-gradient-21" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="44.66730109739369" y="0" width="2" height="100" fill="url(#rib-gradient-22)"/><defs><linearGradient id="rib-gradient-22" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="46.99014917695473" y="0" width="2" height="100" fill="url(#rib-gradient-23)"/><defs><linearGradient id="rib-gradient-23" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="47.80013717421125" y="0" width="2" height="100" fill="url(#rib-gradient-24)"/><defs><linearGradient id="rib-gradient-24" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="49.49849965706447" y="0" width="2" height="100" fill="url(#rib-gradient-25)"/><defs><linearGradient id="rib-gradient-25" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="51.96795267489712" y="0" width="2" height="100" fill="url(#rib-gradient-26)"/><defs><linearGradient id="rib-gradient-26" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="54.350471536351165" y="0" width="2" height="100" fill="url(#rib-gradient-27)"/><defs><linearGradient id="rib-gradient-27" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="56.158401920438955" y="0" width="2" height="100" fill="url(#rib-gradient-28)"/><defs><linearGradient id="rib-gradient-28" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="57.718904320987654" y="0" width="2" height="100" fill="url(#rib-gradient-29)"/><defs><linearGradient id="rib-gradient-29" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="59.95173182441701" y="0" width="2" height="100" fill="url(#rib-gradient-30)"/><defs><linearGradient id="rib-gradient-30" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="61.48034122085048" y="0" width="2" height="100" fill="url(#rib-gradient-31)"/><defs><linearGradient id="rib-gradient-31" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="63.07633744855967" y="0" width="2" height="100" fill="url(#rib-gradient-32)"/><defs><linearGradient id="rib-gradient-32" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="65.43725137174211" y="0" width="2" height="100" fill="url(#rib-gradient-33)"/><defs><linearGradient id="rib-gradient-33" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="68.29765089163237" y="0" width="2" height="100" fill="url(#rib-gradient-34)"/><defs><linearGradient id="rib-gradient-34" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="70.8735853909465" y="0" width="2" height="100" fill="url(#rib-gradient-35)"/><defs><linearGradient id="rib-gradient-35" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="71.64036351165981" y="0" width="2" height="100" fill="url(#rib-gradient-36)"/><defs><linearGradient id="rib-gradient-36" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="73.44366426611796" y="0" width="2" height="100" fill="url(#rib-gradient-37)"/><defs><linearGradient id="rib-gradient-37" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="75.94398148148149" y="0" width="2" height="100" fill="url(#rib-gradient-38)"/><defs><linearGradient id="rib-gradient-38" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="77.39440157750343" y="0" width="2" height="100" fill="url(#rib-gradient-39)"/><defs><linearGradient id="rib-gradient-39" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="79.7517146776406" y="0" width="2" height="100" fill="url(#rib-gradient-40)"/><defs><linearGradient id="rib-gradient-40" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="81.12085905349794" y="0" width="2" height="100" fill="url(#rib-gradient-41)"/><defs><linearGradient id="rib-gradient-41" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="83.53269890260631" y="0" width="2" height="100" fill="url(#rib-gradient-42)"/><defs><linearGradient id="rib-gradient-42" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="86.0551354595336" y="0" width="2" height="100" fill="url(#rib-gradient-43)"/><defs><linearGradient id="rib-gradient-43" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="87.23755144032921" y="0" width="2" height="100" fill="url(#rib-gradient-44)"/><defs><linearGradient id="rib-gradient-44" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="90.88858882030178" y="0" width="2" height="100" fill="url(#rib-gradient-45)"/><defs><linearGradient id="rib-gradient-45" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="91.18725994513032" y="0" width="2" height="100" fill="url(#rib-gradient-46)"/><defs><linearGradient id="rib-gradient-46" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="93.12739197530864" y="0" width="2" height="100" fill="url(#rib-gradient-47)"/><defs><linearGradient id="rib-gradient-47" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="96.29540466392318" y="0" width="2" height="100" fill="url(#rib-gradient-48)"/><defs><linearGradient id="rib-gradient-48" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="97.98142146776406" y="0" width="2" height="100" fill="url(#rib-gradient-49)"/><defs><linearGradient id="rib-gradient-49" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs></g>
+    <g id="nap-layer"><line x1="15.526834705075446" y1="36.22170781893004" x2="14.240041130911237" y2="37.13351629705239" stroke="#f0f0f0" stroke-width="0.5" opacity="0.3"/><line x1="15.435956790123456" y1="90.96622085048011" x2="15.429591888383529" y2="87.0276586066357" stroke="#f0f0f0" stroke-width="0.5" opacity="0.3"/><line x1="56.90886488340192" y1="30.484396433470508" x2="54.60924688594006" y2="29.078934680383075" stroke="#f0f0f0" stroke-width="0.5" opacity="0.3"/><line x1="79.45173182441701" y1="1.6898148148148149" x2="80.87102899147743" y2="0.08419746588075028" stroke="#f0f0f0" stroke-width="0.5" opacity="0.3"/><line x1="52.20036008230453" y1="36.6812414266118" x2="48.400269144179624" y2="36.75248676737252" stroke="#f0f0f0" stroke-width="0.5" opacity="0.3"/><line x1="96.14240397805213" y1="41.631515775034295" x2="94.33285458238169" y2="40.61440274810597" stroke="#f0f0f0" stroke-width="0.5" opacity="0.3"/><line x1="73.00625857338821" y1="52.34310699588477" x2="72.25068256812477" y2="55.175156107080355" stroke="#f0f0f0" stroke-width="0.5" opacity="0.3"/><line x1="40.81661522633745" y1="56.47033607681756" x2="38.511236781050535" y2="57.56446242414767" stroke="#f0f0f0" stroke-width="0.5" opacity="0.3"/><line x1="76.11668381344307" y1="82.40826474622772" x2="75.52056638550012" y2="81.59037657098408" stroke="#f0f0f0" stroke-width="0.5" opacity="0.3"/><line x1="62.8570816186557" y1="54.84825102880658" x2="61.167082025943124" y2="57.25574308063962" stroke="#f0f0f0" stroke-width="0.5" opacity="0.3"/></g>
+    
+  <g id="weave-overlay"><circle cx="3.4036351165980796" cy="78.3423353909465" r="2.663871742112483" fill="#000" opacity="0.5"/><circle cx="3.6213991769547325" cy="3.7658607681755827" r="1.948062414266118" fill="#000" opacity="0.5"/></g></g></g><g transform="translate(200, 0)"><g xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+    <g id="drift-bands"><rect x="0" y="0" width="100" height="33.333333333333336" fill="#000000" opacity="0.13902777777777778"/><rect x="0" y="33.333333333333336" width="100" height="33.333333333333336" fill="#000000" opacity="0.13962534293552814"/><rect x="0" y="66.66666666666667" width="100" height="33.333333333333336" fill="#000000" opacity="0.29757887517146775"/></g>
+    <g id="rib-field"><rect x="-0.76920438957476" y="0" width="2" height="100" fill="url(#rib-gradient-0)"/><defs><linearGradient id="rib-gradient-0" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="2.0526148834019207" y="0" width="2" height="100" fill="url(#rib-gradient-1)"/><defs><linearGradient id="rib-gradient-1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="3.793672839506173" y="0" width="2" height="100" fill="url(#rib-gradient-2)"/><defs><linearGradient id="rib-gradient-2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="5.373722565157751" y="0" width="2" height="100" fill="url(#rib-gradient-3)"/><defs><linearGradient id="rib-gradient-3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="7.4162208504801095" y="0" width="2" height="100" fill="url(#rib-gradient-4)"/><defs><linearGradient id="rib-gradient-4" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="10.692772633744855" y="0" width="2" height="100" fill="url(#rib-gradient-5)"/><defs><linearGradient id="rib-gradient-5" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="11.90090877914952" y="0" width="2" height="100" fill="url(#rib-gradient-6)"/><defs><linearGradient id="rib-gradient-6" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="14.775197187928669" y="0" width="2" height="100" fill="url(#rib-gradient-7)"/><defs><linearGradient id="rib-gradient-7" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="16.531687242798355" y="0" width="2" height="100" fill="url(#rib-gradient-8)"/><defs><linearGradient id="rib-gradient-8" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="17.64568758573388" y="0" width="2" height="100" fill="url(#rib-gradient-9)"/><defs><linearGradient id="rib-gradient-9" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="20.962877229080934" y="0" width="2" height="100" fill="url(#rib-gradient-10)"/><defs><linearGradient id="rib-gradient-10" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="22.14375" y="0" width="2" height="100" fill="url(#rib-gradient-11)"/><defs><linearGradient id="rib-gradient-11" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="23.44139231824417" y="0" width="2" height="100" fill="url(#rib-gradient-12)"/><defs><linearGradient id="rib-gradient-12" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="26.812594307270235" y="0" width="2" height="100" fill="url(#rib-gradient-13)"/><defs><linearGradient id="rib-gradient-13" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="28.362294238683127" y="0" width="2" height="100" fill="url(#rib-gradient-14)"/><defs><linearGradient id="rib-gradient-14" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="30.121356310013716" y="0" width="2" height="100" fill="url(#rib-gradient-15)"/><defs><linearGradient id="rib-gradient-15" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="31.157681755829906" y="0" width="2" height="100" fill="url(#rib-gradient-16)"/><defs><linearGradient id="rib-gradient-16" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="34.02065329218107" y="0" width="2" height="100" fill="url(#rib-gradient-17)"/><defs><linearGradient id="rib-gradient-17" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="36.51891289437586" y="0" width="2" height="100" fill="url(#rib-gradient-18)"/><defs><linearGradient id="rib-gradient-18" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="38.831472908093275" y="0" width="2" height="100" fill="url(#rib-gradient-19)"/><defs><linearGradient id="rib-gradient-19" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="39.95216049382716" y="0" width="2" height="100" fill="url(#rib-gradient-20)"/><defs><linearGradient id="rib-gradient-20" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="41.467395404663925" y="0" width="2" height="100" fill="url(#rib-gradient-21)"/><defs><linearGradient id="rib-gradient-21" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="44.66730109739369" y="0" width="2" height="100" fill="url(#rib-gradient-22)"/><defs><linearGradient id="rib-gradient-22" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="46.99014917695473" y="0" width="2" height="100" fill="url(#rib-gradient-23)"/><defs><linearGradient id="rib-gradient-23" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="47.80013717421125" y="0" width="2" height="100" fill="url(#rib-gradient-24)"/><defs><linearGradient id="rib-gradient-24" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="49.49849965706447" y="0" width="2" height="100" fill="url(#rib-gradient-25)"/><defs><linearGradient id="rib-gradient-25" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="51.96795267489712" y="0" width="2" height="100" fill="url(#rib-gradient-26)"/><defs><linearGradient id="rib-gradient-26" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="54.350471536351165" y="0" width="2" height="100" fill="url(#rib-gradient-27)"/><defs><linearGradient id="rib-gradient-27" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="56.158401920438955" y="0" width="2" height="100" fill="url(#rib-gradient-28)"/><defs><linearGradient id="rib-gradient-28" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="57.718904320987654" y="0" width="2" height="100" fill="url(#rib-gradient-29)"/><defs><linearGradient id="rib-gradient-29" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="59.95173182441701" y="0" width="2" height="100" fill="url(#rib-gradient-30)"/><defs><linearGradient id="rib-gradient-30" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="61.48034122085048" y="0" width="2" height="100" fill="url(#rib-gradient-31)"/><defs><linearGradient id="rib-gradient-31" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="63.07633744855967" y="0" width="2" height="100" fill="url(#rib-gradient-32)"/><defs><linearGradient id="rib-gradient-32" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="65.43725137174211" y="0" width="2" height="100" fill="url(#rib-gradient-33)"/><defs><linearGradient id="rib-gradient-33" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="68.29765089163237" y="0" width="2" height="100" fill="url(#rib-gradient-34)"/><defs><linearGradient id="rib-gradient-34" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="70.8735853909465" y="0" width="2" height="100" fill="url(#rib-gradient-35)"/><defs><linearGradient id="rib-gradient-35" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="71.64036351165981" y="0" width="2" height="100" fill="url(#rib-gradient-36)"/><defs><linearGradient id="rib-gradient-36" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="73.44366426611796" y="0" width="2" height="100" fill="url(#rib-gradient-37)"/><defs><linearGradient id="rib-gradient-37" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="75.94398148148149" y="0" width="2" height="100" fill="url(#rib-gradient-38)"/><defs><linearGradient id="rib-gradient-38" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="77.39440157750343" y="0" width="2" height="100" fill="url(#rib-gradient-39)"/><defs><linearGradient id="rib-gradient-39" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="79.7517146776406" y="0" width="2" height="100" fill="url(#rib-gradient-40)"/><defs><linearGradient id="rib-gradient-40" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="81.12085905349794" y="0" width="2" height="100" fill="url(#rib-gradient-41)"/><defs><linearGradient id="rib-gradient-41" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="83.53269890260631" y="0" width="2" height="100" fill="url(#rib-gradient-42)"/><defs><linearGradient id="rib-gradient-42" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="86.0551354595336" y="0" width="2" height="100" fill="url(#rib-gradient-43)"/><defs><linearGradient id="rib-gradient-43" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="87.23755144032921" y="0" width="2" height="100" fill="url(#rib-gradient-44)"/><defs><linearGradient id="rib-gradient-44" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="90.88858882030178" y="0" width="2" height="100" fill="url(#rib-gradient-45)"/><defs><linearGradient id="rib-gradient-45" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="91.18725994513032" y="0" width="2" height="100" fill="url(#rib-gradient-46)"/><defs><linearGradient id="rib-gradient-46" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="93.12739197530864" y="0" width="2" height="100" fill="url(#rib-gradient-47)"/><defs><linearGradient id="rib-gradient-47" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="96.29540466392318" y="0" width="2" height="100" fill="url(#rib-gradient-48)"/><defs><linearGradient id="rib-gradient-48" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="97.98142146776406" y="0" width="2" height="100" fill="url(#rib-gradient-49)"/><defs><linearGradient id="rib-gradient-49" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs></g>
+    <g id="nap-layer"><line x1="15.526834705075446" y1="36.22170781893004" x2="14.240041130911237" y2="37.13351629705239" stroke="#f0f0f0" stroke-width="0.5" opacity="0.3"/><line x1="15.435956790123456" y1="90.96622085048011" x2="15.429591888383529" y2="87.0276586066357" stroke="#f0f0f0" stroke-width="0.5" opacity="0.3"/><line x1="56.90886488340192" y1="30.484396433470508" x2="54.60924688594006" y2="29.078934680383075" stroke="#f0f0f0" stroke-width="0.5" opacity="0.3"/><line x1="79.45173182441701" y1="1.6898148148148149" x2="80.87102899147743" y2="0.08419746588075028" stroke="#f0f0f0" stroke-width="0.5" opacity="0.3"/><line x1="52.20036008230453" y1="36.6812414266118" x2="48.400269144179624" y2="36.75248676737252" stroke="#f0f0f0" stroke-width="0.5" opacity="0.3"/><line x1="96.14240397805213" y1="41.631515775034295" x2="94.33285458238169" y2="40.61440274810597" stroke="#f0f0f0" stroke-width="0.5" opacity="0.3"/><line x1="73.00625857338821" y1="52.34310699588477" x2="72.25068256812477" y2="55.175156107080355" stroke="#f0f0f0" stroke-width="0.5" opacity="0.3"/><line x1="40.81661522633745" y1="56.47033607681756" x2="38.511236781050535" y2="57.56446242414767" stroke="#f0f0f0" stroke-width="0.5" opacity="0.3"/><line x1="76.11668381344307" y1="82.40826474622772" x2="75.52056638550012" y2="81.59037657098408" stroke="#f0f0f0" stroke-width="0.5" opacity="0.3"/><line x1="62.8570816186557" y1="54.84825102880658" x2="61.167082025943124" y2="57.25574308063962" stroke="#f0f0f0" stroke-width="0.5" opacity="0.3"/></g>
+    
+  <g id="weave-overlay"><circle cx="3.4036351165980796" cy="78.3423353909465" r="2.663871742112483" fill="#000" opacity="0.5"/><circle cx="3.6213991769547325" cy="3.7658607681755827" r="1.948062414266118" fill="#000" opacity="0.5"/></g></g></g><g transform="translate(300, 0)"><g xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+    <g id="drift-bands"><rect x="0" y="0" width="100" height="33.333333333333336" fill="#000000" opacity="0.13902777777777778"/><rect x="0" y="33.333333333333336" width="100" height="33.333333333333336" fill="#000000" opacity="0.13962534293552814"/><rect x="0" y="66.66666666666667" width="100" height="33.333333333333336" fill="#000000" opacity="0.29757887517146775"/></g>
+    <g id="rib-field"><rect x="-0.76920438957476" y="0" width="2" height="100" fill="url(#rib-gradient-0)"/><defs><linearGradient id="rib-gradient-0" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="2.0526148834019207" y="0" width="2" height="100" fill="url(#rib-gradient-1)"/><defs><linearGradient id="rib-gradient-1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="3.793672839506173" y="0" width="2" height="100" fill="url(#rib-gradient-2)"/><defs><linearGradient id="rib-gradient-2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="5.373722565157751" y="0" width="2" height="100" fill="url(#rib-gradient-3)"/><defs><linearGradient id="rib-gradient-3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="7.4162208504801095" y="0" width="2" height="100" fill="url(#rib-gradient-4)"/><defs><linearGradient id="rib-gradient-4" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="10.692772633744855" y="0" width="2" height="100" fill="url(#rib-gradient-5)"/><defs><linearGradient id="rib-gradient-5" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="11.90090877914952" y="0" width="2" height="100" fill="url(#rib-gradient-6)"/><defs><linearGradient id="rib-gradient-6" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="14.775197187928669" y="0" width="2" height="100" fill="url(#rib-gradient-7)"/><defs><linearGradient id="rib-gradient-7" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="16.531687242798355" y="0" width="2" height="100" fill="url(#rib-gradient-8)"/><defs><linearGradient id="rib-gradient-8" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="17.64568758573388" y="0" width="2" height="100" fill="url(#rib-gradient-9)"/><defs><linearGradient id="rib-gradient-9" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="20.962877229080934" y="0" width="2" height="100" fill="url(#rib-gradient-10)"/><defs><linearGradient id="rib-gradient-10" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="22.14375" y="0" width="2" height="100" fill="url(#rib-gradient-11)"/><defs><linearGradient id="rib-gradient-11" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="23.44139231824417" y="0" width="2" height="100" fill="url(#rib-gradient-12)"/><defs><linearGradient id="rib-gradient-12" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="26.812594307270235" y="0" width="2" height="100" fill="url(#rib-gradient-13)"/><defs><linearGradient id="rib-gradient-13" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="28.362294238683127" y="0" width="2" height="100" fill="url(#rib-gradient-14)"/><defs><linearGradient id="rib-gradient-14" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="30.121356310013716" y="0" width="2" height="100" fill="url(#rib-gradient-15)"/><defs><linearGradient id="rib-gradient-15" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="31.157681755829906" y="0" width="2" height="100" fill="url(#rib-gradient-16)"/><defs><linearGradient id="rib-gradient-16" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="34.02065329218107" y="0" width="2" height="100" fill="url(#rib-gradient-17)"/><defs><linearGradient id="rib-gradient-17" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="36.51891289437586" y="0" width="2" height="100" fill="url(#rib-gradient-18)"/><defs><linearGradient id="rib-gradient-18" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="38.831472908093275" y="0" width="2" height="100" fill="url(#rib-gradient-19)"/><defs><linearGradient id="rib-gradient-19" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="39.95216049382716" y="0" width="2" height="100" fill="url(#rib-gradient-20)"/><defs><linearGradient id="rib-gradient-20" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="41.467395404663925" y="0" width="2" height="100" fill="url(#rib-gradient-21)"/><defs><linearGradient id="rib-gradient-21" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="44.66730109739369" y="0" width="2" height="100" fill="url(#rib-gradient-22)"/><defs><linearGradient id="rib-gradient-22" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="46.99014917695473" y="0" width="2" height="100" fill="url(#rib-gradient-23)"/><defs><linearGradient id="rib-gradient-23" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="47.80013717421125" y="0" width="2" height="100" fill="url(#rib-gradient-24)"/><defs><linearGradient id="rib-gradient-24" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="49.49849965706447" y="0" width="2" height="100" fill="url(#rib-gradient-25)"/><defs><linearGradient id="rib-gradient-25" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="51.96795267489712" y="0" width="2" height="100" fill="url(#rib-gradient-26)"/><defs><linearGradient id="rib-gradient-26" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="54.350471536351165" y="0" width="2" height="100" fill="url(#rib-gradient-27)"/><defs><linearGradient id="rib-gradient-27" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="56.158401920438955" y="0" width="2" height="100" fill="url(#rib-gradient-28)"/><defs><linearGradient id="rib-gradient-28" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="57.718904320987654" y="0" width="2" height="100" fill="url(#rib-gradient-29)"/><defs><linearGradient id="rib-gradient-29" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="59.95173182441701" y="0" width="2" height="100" fill="url(#rib-gradient-30)"/><defs><linearGradient id="rib-gradient-30" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="61.48034122085048" y="0" width="2" height="100" fill="url(#rib-gradient-31)"/><defs><linearGradient id="rib-gradient-31" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="63.07633744855967" y="0" width="2" height="100" fill="url(#rib-gradient-32)"/><defs><linearGradient id="rib-gradient-32" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="65.43725137174211" y="0" width="2" height="100" fill="url(#rib-gradient-33)"/><defs><linearGradient id="rib-gradient-33" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="68.29765089163237" y="0" width="2" height="100" fill="url(#rib-gradient-34)"/><defs><linearGradient id="rib-gradient-34" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="70.8735853909465" y="0" width="2" height="100" fill="url(#rib-gradient-35)"/><defs><linearGradient id="rib-gradient-35" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="71.64036351165981" y="0" width="2" height="100" fill="url(#rib-gradient-36)"/><defs><linearGradient id="rib-gradient-36" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="73.44366426611796" y="0" width="2" height="100" fill="url(#rib-gradient-37)"/><defs><linearGradient id="rib-gradient-37" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="75.94398148148149" y="0" width="2" height="100" fill="url(#rib-gradient-38)"/><defs><linearGradient id="rib-gradient-38" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="77.39440157750343" y="0" width="2" height="100" fill="url(#rib-gradient-39)"/><defs><linearGradient id="rib-gradient-39" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="79.7517146776406" y="0" width="2" height="100" fill="url(#rib-gradient-40)"/><defs><linearGradient id="rib-gradient-40" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="81.12085905349794" y="0" width="2" height="100" fill="url(#rib-gradient-41)"/><defs><linearGradient id="rib-gradient-41" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="83.53269890260631" y="0" width="2" height="100" fill="url(#rib-gradient-42)"/><defs><linearGradient id="rib-gradient-42" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="86.0551354595336" y="0" width="2" height="100" fill="url(#rib-gradient-43)"/><defs><linearGradient id="rib-gradient-43" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="87.23755144032921" y="0" width="2" height="100" fill="url(#rib-gradient-44)"/><defs><linearGradient id="rib-gradient-44" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="90.88858882030178" y="0" width="2" height="100" fill="url(#rib-gradient-45)"/><defs><linearGradient id="rib-gradient-45" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="91.18725994513032" y="0" width="2" height="100" fill="url(#rib-gradient-46)"/><defs><linearGradient id="rib-gradient-46" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="93.12739197530864" y="0" width="2" height="100" fill="url(#rib-gradient-47)"/><defs><linearGradient id="rib-gradient-47" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="96.29540466392318" y="0" width="2" height="100" fill="url(#rib-gradient-48)"/><defs><linearGradient id="rib-gradient-48" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs><rect x="97.98142146776406" y="0" width="2" height="100" fill="url(#rib-gradient-49)"/><defs><linearGradient id="rib-gradient-49" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#333;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+    </linearGradient></defs></g>
+    <g id="nap-layer"><line x1="15.526834705075446" y1="36.22170781893004" x2="14.240041130911237" y2="37.13351629705239" stroke="#f0f0f0" stroke-width="0.5" opacity="0.3"/><line x1="15.435956790123456" y1="90.96622085048011" x2="15.429591888383529" y2="87.0276586066357" stroke="#f0f0f0" stroke-width="0.5" opacity="0.3"/><line x1="56.90886488340192" y1="30.484396433470508" x2="54.60924688594006" y2="29.078934680383075" stroke="#f0f0f0" stroke-width="0.5" opacity="0.3"/><line x1="79.45173182441701" y1="1.6898148148148149" x2="80.87102899147743" y2="0.08419746588075028" stroke="#f0f0f0" stroke-width="0.5" opacity="0.3"/><line x1="52.20036008230453" y1="36.6812414266118" x2="48.400269144179624" y2="36.75248676737252" stroke="#f0f0f0" stroke-width="0.5" opacity="0.3"/><line x1="96.14240397805213" y1="41.631515775034295" x2="94.33285458238169" y2="40.61440274810597" stroke="#f0f0f0" stroke-width="0.5" opacity="0.3"/><line x1="73.00625857338821" y1="52.34310699588477" x2="72.25068256812477" y2="55.175156107080355" stroke="#f0f0f0" stroke-width="0.5" opacity="0.3"/><line x1="40.81661522633745" y1="56.47033607681756" x2="38.511236781050535" y2="57.56446242414767" stroke="#f0f0f0" stroke-width="0.5" opacity="0.3"/><line x1="76.11668381344307" y1="82.40826474622772" x2="75.52056638550012" y2="81.59037657098408" stroke="#f0f0f0" stroke-width="0.5" opacity="0.3"/><line x1="62.8570816186557" y1="54.84825102880658" x2="61.167082025943124" y2="57.25574308063962" stroke="#f0f0f0" stroke-width="0.5" opacity="0.3"/></g>
+    
+  <g id="weave-overlay"><circle cx="3.4036351165980796" cy="78.3423353909465" r="2.663871742112483" fill="#000" opacity="0.5"/><circle cx="3.6213991769547325" cy="3.7658607681755827" r="1.948062414266118" fill="#000" opacity="0.5"/></g></g></g></svg>

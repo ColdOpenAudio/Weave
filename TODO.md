@@ -87,11 +87,11 @@
 
 ## Production ZIP Packaging (Deferred)
 
-- [ ] Define deterministic folder structure and naming scheme
-- [ ] Generate `manifest.json` (seed, spec_version, effective config snapshot, file list)
-- [ ] Generate `checksums.sha256`
-- [ ] Generate palette exports (ASE/GPL/JSON)
-- [ ] Include print spec / README handoff docs
+- [x] Define deterministic folder structure and naming scheme
+- [x] Generate `manifest.json` (seed, spec_version, effective config snapshot, file list)
+- [x] Generate `checksums.sha256`
+- [x] Generate palette exports (ASE/GPL/JSON)
+- [x] Include print spec / README handoff docs
 
 ---
 
@@ -109,6 +109,7 @@
 - [ ] `generate` command (config path, seed override, output dir)
 - [ ] `batch` command (seed list generation, manifest CSV)
 - [ ] `validate` umbrella command (base/preset/effective)
+- [x] `package` command (output zip, palette options, deterministic flag)
 
 ---
 
@@ -154,11 +155,6 @@
 - Raster exports: TIFF 300, PNG 300, JPG previews, repeat swatches
 - Optional separations: spot sets + combined proof
 - Color policies documented and enforced (working vs web conversion)
-- Define deterministic folder structure and naming scheme
-- Generate `manifest.json` (seed, spec_version, effective config snapshot, file list)
-- Generate `checksums.sha256`
-- Generate palette exports (ASE/GPL/JSON)
-- Include print spec / README handoff docs
 
 # Risks
 

@@ -1,12 +1,11 @@
 import Ajv from 'ajv';
 import * as fs from 'fs-extra';
-import * as path from 'path';
 
 export interface ManifestData {
   seed: number;
   spec_version: string;
   effective_config: any;
-  files: { name: string; type: string; checksum?: string }[];
+  files: { path: string; type: string; checksum?: string }[];
   generated_at: string;
   version: string;
 }
@@ -22,11 +21,11 @@ const MANIFEST_SCHEMA = {
       items: {
         type: 'object',
         properties: {
-          name: { type: 'string' },
+          path: { type: 'string' },
           type: { type: 'string' },
           checksum: { type: 'string' }
         },
-        required: ['name', 'type']
+        required: ['path', 'type']
       }
     },
     generated_at: { type: 'string' },
@@ -42,15 +41,16 @@ export async function generateManifest(
   seed: number,
   specVersion: string,
   effectiveConfig: any,
-  files: { name: string; type: string }[],
-  outputPath: string
+  files: { path: string; type: string }[],
+  outputPath: string,
+  generatedAt?: string
 ): Promise<void> {
   const manifest: ManifestData = {
     seed,
     spec_version: specVersion,
     effective_config: effectiveConfig,
-    files,
-    generated_at: new Date().toISOString(),
+    files: [...files].sort((a, b) => a.path.localeCompare(b.path)),
+    generated_at: generatedAt ?? new Date().toISOString(),
     version: '1.0'
   };
 

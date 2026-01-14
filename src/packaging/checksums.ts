@@ -12,7 +12,8 @@ export interface ChecksumEntry {
 export async function generateChecksums(files: string[], baseDir: string, outputPath: string): Promise<void> {
   const entries: ChecksumEntry[] = [];
 
-  for (const file of files) {
+  const uniqueFiles = Array.from(new Set(files)).sort((a, b) => a.localeCompare(b));
+  for (const file of uniqueFiles) {
     const fullPath = path.resolve(baseDir, file);
     const hash = crypto.createHash('sha256');
     const stream = createReadStream(fullPath);

@@ -7,21 +7,35 @@ export interface PaletteColor {
   hex: string;
 }
 
-export async function generatePalettes(colors: PaletteColor[], outputDir: string): Promise<void> {
+export type PaletteFormat = 'ase' | 'gpl' | 'json';
+
+type PaletteWriter = (colors: PaletteColor[]) => Buffer | string;
+
+const PALETTE_WRITERS: Record<PaletteFormat, PaletteWriter> = {
+  ase: (colors) => createASEPalette(colors),
+  gpl: (colors) => createGPLPalette(colors),
+  json: (colors) => JSON.stringify({ colors }, null, 2)
+};
+
+export async function generatePalettes(
+  colors: PaletteColor[],
+  outputDir: string,
+  formats: PaletteFormat[] = ['ase', 'gpl', 'json']
+): Promise<void> {
   // Sort for determinism
-  colors.sort((a, b) => a.name.localeCompare(b.name));
+  const sorted = [...colors].sort((a, b) => {
+    const nameCmp = a.name.localeCompare(b.name);
+    return nameCmp !== 0 ? nameCmp : a.hex.localeCompare(b.hex);
+  });
 
-  // Generate ASE (Adobe Swatch Exchange) - binary format
-  const aseBuffer = createASEPalette(colors);
-  await fs.writeFile(path.join(outputDir, 'palette.ase'), aseBuffer);
-
-  // Generate GPL (GIMP Palette)
-  const gplContent = createGPLPalette(colors);
-  await fs.writeFile(path.join(outputDir, 'palette.gpl'), gplContent);
-
-  // Generate JSON
-  const jsonContent = JSON.stringify({ colors }, null, 2);
-  await fs.writeFile(path.join(outputDir, 'palette.json'), jsonContent);
+  for (const format of formats) {
+    const writer = PALETTE_WRITERS[format];
+    if (!writer) {
+      throw new Error(`Unsupported palette format: ${format}`);
+    }
+    const output = writer(sorted);
+    await fs.writeFile(path.join(outputDir, `palette.${format}`), output);
+  }
 }
 
 function createASEPalette(colors: PaletteColor[]): Buffer {
