@@ -2,6 +2,8 @@ import fs from 'fs';
 import path from 'path';
 import process from 'process';
 import Ajv from 'ajv';
+import { generateCompositeSVG } from './generators/composition.js';
+import { exportComposition, ExportOptions } from './export/index.js';
 
 function fail(msg: string, code = 1): never {
   console.error(msg);
@@ -40,6 +42,7 @@ async function run() {
     console.log('  node dist/index.js validate-base <configPath>');
     console.log('  node dist/index.js validate-preset <presetPath>');
     console.log('  node dist/index.js validate-effective --base <basePath> --preset <presetPath>');
+    console.log('  node dist/index.js generate --config <configPath> --seed <number> [--output-dir <dir>] [--export <format>] [--color-policy <policy>] [--dpi <number>] [--separations]');
     console.log('  node dist/index.js help');
     process.exit(0);
   }
@@ -222,6 +225,90 @@ async function run() {
     }
 
     console.log('Effective config is valid according to schema.base.json');
+    process.exit(0);
+  }
+
+  if (cmd === 'generate') {
+    let configPath = '';
+    let seed = 0;
+    let outputDir = './output';
+    let exportFormat: string | undefined;
+    let colorPolicy: 'web' | 'print' = 'web';
+    let dpi = 300;
+    let enableSeparations = false;
+
+    for (let i = 1; i < argv.length; i++) {
+      if (argv[i] === '--config' && argv[i + 1]) {
+        configPath = argv[i + 1];
+        i++;
+      } else if (argv[i] === '--seed' && argv[i + 1]) {
+        seed = parseInt(argv[i + 1]);
+        i++;
+      } else if (argv[i] === '--output-dir' && argv[i + 1]) {
+        outputDir = argv[i + 1];
+        i++;
+      } else if (argv[i] === '--export' && argv[i + 1]) {
+        exportFormat = argv[i + 1];
+        i++;
+      } else if (argv[i] === '--color-policy' && argv[i + 1]) {
+        colorPolicy = argv[i + 1] as 'web' | 'print';
+        i++;
+      } else if (argv[i] === '--dpi' && argv[i + 1]) {
+        dpi = parseInt(argv[i + 1]);
+        i++;
+      } else if (argv[i] === '--separations') {
+        enableSeparations = true;
+      }
+    }
+
+    if (!configPath) fail('No config path provided for generate', 2);
+    if (seed <= 0) fail('Seed must be a positive integer', 2);
+
+    const cfg = JSON.parse(fs.readFileSync(configPath, 'utf8'));
+    cfg.seed = seed;
+    // Map to CompositionConfig
+    const compConfig = {
+      tile: {
+        width: cfg.tile.tile_width,
+        height: cfg.tile.tile_height,
+        seed: cfg.seed,
+        ribProfile: { width: 2, shadowColor: '#333', midColor: '#666', highlightColor: '#999' },
+        napDensity: 0.1,
+        driftBands: 3
+      },
+      weave: {
+        width: cfg.tile.tile_width,
+        height: cfg.tile.tile_height,
+        seed: cfg.seed,
+        eventDensity: 0.02,
+        minFeatureMm: cfg.constraints?.min_feature_mm || 1,
+        maxShapesPerTile: cfg.constraints?.max_shapes_per_tile || 1000,
+        xWrap: true,
+        yWrap: false
+      },
+      repeatX: cfg.tile.repeat_x
+    };
+    const svg = generateCompositeSVG(compConfig);
+
+    fs.mkdirSync(outputDir, { recursive: true });
+    const svgPath = path.join(outputDir, `fabric-${seed}.svg`);
+    fs.writeFileSync(svgPath, svg);
+    console.log(`Generated SVG: ${svgPath}`);
+
+    if (exportFormat) {
+      const exportOptions: ExportOptions = {
+        format: exportFormat as any,
+        colorPolicy,
+        dpi,
+        enableSeparations,
+        outputDir,
+        seed
+      };
+      await exportComposition(svg, exportOptions);
+      const ext = exportFormat === 'jpg' ? 'jpg' : exportFormat;
+      console.log(`Exported to ${exportFormat}: ${path.join(outputDir, `fabric-${seed}.${ext}`)}`);
+    }
+
     process.exit(0);
   }
 
