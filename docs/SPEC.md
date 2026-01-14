@@ -13,6 +13,7 @@
 Configs are layered as a **base** document with optional **preset** overrides. The base file defines the complete contract; presets only override existing keys and never introduce new top-level sections.
 
 **Merge rules (explicit):**
+
 - Objects merge recursively by key.
 - Scalars replace the base value at the same key.
 - Arrays replace the base array entirely (no element-wise merging).
@@ -103,31 +104,41 @@ The above parameter list is kept intentionally minimal and reflects the keys use
 > Source of truth: No `configs/base.json` or preset files are present in the repository at this time; therefore, there are no configuration keys to enumerate. This section is intentionally empty until configuration files are added.
 
 ### Global
+
 None.
 
 ### Naming
+
 None.
 
 ### Tile
+
 None.
 
 ### Corduroy
+
 None.
 
 ### Nap/Drift
+
 None.
 
 ### Weave
+
 None.
 
 ### Palette
+
 None.
 
 ### Exports
+
 None.
 
 ### Packaging
+
 None.
 
 ### Constraints
+
 None.

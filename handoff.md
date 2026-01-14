@@ -1,6 +1,7 @@
 # Handoff: Continue Step 9 (validate-base)
 
 Context
+
 - Repo: ColdOpenAudio/Weave (branch: main). Work completed up to Step 9 (validate-base).
 - Changed files and current state:
   - `configs/base.json.bak` (backup of original `configs/base.json`)
@@ -13,6 +14,7 @@ Context
   - `scripts/verify.ps1` and `scripts/verify.sh` (platform verification scripts)
 
 Non-destructive constraints (must follow)
+
 - Never delete files. Never overwrite `configs/base.json` without first creating `configs/base.json.bak` (already present).
 - Prefer minimal patches; do not introduce generator or export pipelines beyond Step 9.
 - Do not rewrite `docs/SPEC.md` wholesale—patch only as necessary.
@@ -20,6 +22,7 @@ Non-destructive constraints (must follow)
 - Schema and runtime must use local files only (no network fetching).
 
 Tasks (execute in order)
+
 1. Inspect repository and confirm the changed files listed in Context.
 2. From repo root run the verification steps:
    - `npm install`
@@ -46,6 +49,7 @@ Tasks (execute in order)
    - Any open questions documented and recommended next steps.
 
 Acceptance criteria
+
 - `package.json` contains scripts: `typecheck`, `build`, `start`, `lint`, `format`, `format:check`, `validate:base`.
 - `npm run typecheck`, `npm run build`, `npm run lint` (or lint tolerated failures documented), `npm run format:check` succeed locally.
 - `npm run validate:base -- configs/base.json` exits 0.
@@ -55,7 +59,9 @@ Acceptance criteria
 - All changes are non-destructive and `configs/base.json.bak` is present.
 
 Commands to run (copy/paste)
+
 - POSIX:
+
 ```bash
 npm install
 npm run typecheck
@@ -65,7 +71,9 @@ npm run format:check
 npm run validate:base -- configs/base.json
 sh scripts/verify.sh
 ```
+
 - Windows (PowerShell):
+
 ```powershell
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 npm install
@@ -78,10 +86,12 @@ npm run validate:base -- configs/base.json
 ```
 
 Deliverables
+
 - Commit(s) on `step9/validate-base-fixes` containing only minimal patches and tests.
 - A PR against `main` with verification logs and summary.
 
 Notes / Caveats
+
 - Validator uses AJV and local schema only; keep it that way. No network schema fetching.
 - Preserve the `fail-closed` policy: unknown keys must be rejected.
 - Prefer updating schema to reflect intended config contract; only augment `configs/base.json` if it's clearly missing required fields — always back it up first.
