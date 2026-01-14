@@ -17,6 +17,7 @@ const weaveConfig = {
   seed: 12345,
   eventDensity: 0.02,
   minFeatureMm: 1,
+  maxShapesPerTile: 10,
   xWrap: true,
   yWrap: false
 };

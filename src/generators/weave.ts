@@ -14,6 +14,7 @@ export interface WeaveConfig {
   seed: number;
   eventDensity: number; // e.g., 0.02 for 2% coverage
   minFeatureMm: number; // from constraints
+  maxShapesPerTile: number; // from constraints
   xWrap: boolean;
   yWrap: boolean;
 }
@@ -75,11 +76,11 @@ export function generateEvent(event: Event, rand: SeededRandom): string {
 
 // 2.3 Create seed-driven event placement
 export function generateEvents(config: WeaveConfig): Event[] {
-  const { width, height, seed, eventDensity, minFeatureMm } = config;
+  const { width, height, seed, eventDensity, minFeatureMm, maxShapesPerTile } = config;
   const rand = new SeededRandom(seed + 3); // different seed
   const events: Event[] = [];
 
-  const numEvents = Math.floor(width * height * eventDensity / 100);
+  const numEvents = Math.min(Math.floor(width * height * eventDensity / 100), maxShapesPerTile);
   for (let i = 0; i < numEvents; i++) {
     const type = eventTypes[Math.floor(rand.next() * eventTypes.length)];
     const x = rand.next() * width;
