@@ -1,29 +1,36 @@
 {
   "spec_version": "1.0",
   "naming": {
+    "project_name": "weave-project",
+    "version": "0.1.0",
+    "colorway": "default",
     "pattern": "{preset}-{index}",
     "index_pad": 3
   },
   "tile": {
+    "tile_width": 100,
+    "tile_height": 100,
     "repeat_x": 4,
     "repeat_y": 1
   },
   "generators": {
-    "primary": {
-      "type": "placeholder",
-      "enabled": false
-    },
-    "secondary": {
-      "type": "placeholder",
-      "enabled": false
-    }
+    "corduroy": { "type": "placeholder", "enabled": false },
+    "weave": { "type": "placeholder", "enabled": false },
+    "palette": { "type": "placeholder", "enabled": false }
   },
   "exports": {
+    "preset": "hoodie-panel",
     "formats": [],
-    "include_metadata": true
+    "include_metadata": true,
+    "toggles": { "include_svg": true, "include_png": false }
   },
   "packaging": {
     "mode": "none",
     "bundle_name": "{preset}"
+  }
+  ,
+  "constraints": {
+    "min_feature_mm": 1,
+    "max_shapes_per_tile": 1000
   }
 }

@@ -4,13 +4,85 @@
   "title": "Weave Base Config",
   "type": "object",
   "additionalProperties": false,
-  "$comment": "Non-enforceable constraints are documented in docs/SPEC.md.",
+  "$comment": "Schema enforces base config shape; see docs/SPEC.md for rationale.",
   "properties": {
-    "repeat_x": {
-      "type": "integer",
-      "const": 4,
-      "description": "Fixed repeat count for the X axis."
+    "spec_version": { "type": "string" },
+    "naming": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "project_name": { "type": "string" },
+        "version": { "type": "string" },
+        "colorway": { "type": "string" },
+        "pattern": { "type": "string" },
+        "index_pad": { "type": "integer", "minimum": 0 }
+      },
+      "required": ["project_name", "version", "pattern"]
+    },
+    "tile": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "tile_width": { "type": "number", "minimum": 1 },
+        "tile_height": { "type": "number", "minimum": 1 },
+        "repeat_x": { "type": "integer", "const": 4 },
+        "repeat_y": { "type": "integer", "minimum": 1 }
+      },
+      "required": ["repeat_x"]
+    },
+    "generators": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "corduroy": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": { "type": { "type": "string" }, "enabled": { "type": "boolean" } },
+          "required": ["type"]
+        },
+        "weave": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": { "type": { "type": "string" }, "enabled": { "type": "boolean" } },
+          "required": ["type"]
+        },
+        "palette": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": { "type": { "type": "string" }, "enabled": { "type": "boolean" } },
+          "required": ["type"]
+        }
+      }
+    },
+    "exports": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "preset": { "type": "string" },
+        "formats": { "type": "array", "items": { "type": "string" } },
+        "include_metadata": { "type": "boolean" },
+        "toggles": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": { "include_svg": { "type": "boolean" }, "include_png": { "type": "boolean" } }
+        }
+      },
+      "required": ["preset"]
+    },
+    "packaging": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": { "mode": { "type": "string" }, "bundle_name": { "type": "string" } },
+      "required": ["mode"]
+    },
+    "constraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "min_feature_mm": { "type": "number", "minimum": 0 },
+        "max_shapes_per_tile": { "type": "integer", "minimum": 0 }
+      }
     }
   },
-  "required": ["repeat_x"]
+  "required": ["spec_version", "naming", "tile", "generators", "exports", "packaging"]
 }
