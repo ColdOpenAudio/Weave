@@ -1,4 +1,6 @@
-# TODO — Generative Fabric Tool (Corduroy + Weave) — TypeScript CLI
+# TODO
+
+# Generative Fabric Tool (Corduroy + Weave) — TypeScript CLI
 
 ## Build Sequence Checklist (Granular Steps)
 
@@ -109,10 +111,39 @@
 
 ---
 
-## Milestones
+# Milestones
 
-## Backlog
+- **Milestone 1: Spec Lock (Completed)** - Steps 1-9 implemented and validated. Base config schema, types, and validation are secure and fail-closed. Repository structure and tooling (lint, format, build) are established.
+- **Milestone 2: Preset and Effective Validation** - Steps 10-12: Implement preset schema, merge rules, and effective config validation. Ensure secure override-only presets with strict allowlists.
+- **Milestone 3: Core Generator Implementation** - Implement corduroy and weave generators with tile engine, event placement, and seam logic. Achieve deterministic, seed-driven outputs.
+- **Milestone 4: Export Matrix** - Add vector and raster export capabilities, including SVG, PDF, TIFF, PNG variants. Implement color policies and optional separations.
+- **Milestone 5: Production Packaging** - Implement ZIP packaging with manifest, checksums, and palette exports. Ensure deterministic folder structures.
+- **Milestone 6: Quality Assurance** - Add seam verification, snapshot testing, complexity guards, and robust error handling.
+- **Milestone 7: CLI UX and Documentation** - Complete CLI commands (generate, batch, validate), finalize docs/SPEC.md, and add production guidance.
 
-## Risks
+# Backlog
 
-## Dependencies
+- Investigate alternative JSON schema validators if AJV performance becomes an issue.
+- Explore web-based preview tool for generated patterns.
+- Add internationalization support for CLI messages.
+- Implement caching for repeated validations to improve performance.
+- Research integration with design software (e.g., Adobe plugins).
+
+# Risks
+
+- **Schema Validation Reliability**: AJV library updates could introduce breaking changes; pin version and monitor for updates.
+- **Merge Logic Complexity**: Deep-merge implementation for presets must be thoroughly tested to prevent security vulnerabilities or unexpected overrides.
+- **Performance Scaling**: Large tile generations or complex patterns may hit memory/CPU limits; implement guards and profiling.
+- **Deterministic Seed Behavior**: Ensure seed-driven randomness is truly reproducible across environments and Node.js versions.
+- **External Dependencies**: Reliance on npm packages (AJV, TypeScript) could be affected by supply chain issues; consider vendoring critical code.
+- **Print Production Accuracy**: Exported files must meet print standards (PDF/X, color profiles); validate with professional printers.
+
+# Dependencies
+
+- **Runtime**: Node.js >= 18.0.0 (for ES modules and modern features)
+- **Build Tools**: TypeScript >= 5.5.4, TSC compiler
+- **Validation**: AJV >= 8.12.0 for JSON schema validation
+- **Code Quality**: ESLint >= 8.0.0 with @typescript-eslint plugins, Prettier >= 2.0.0
+- **Version Control**: Git, GitHub for repository and CI/CD
+- **Testing**: Manual verification scripts (verify.sh, verify.ps1); future: Jest or similar for unit tests
+- **Documentation**: Markdown for specs, potential future use of Docusaurus or similar for docs site
