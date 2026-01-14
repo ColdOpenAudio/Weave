@@ -1,0 +1,80 @@
+{
+  "title": "Weave Preset Config",
+  "type": "object",
+  "additionalProperties": false,
+  "$comment": "Schema enforces preset config shape: override-only, no new top-level keys, no spec_version.",
+  "properties": {
+    "naming": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "project_name": { "type": "string" },
+        "version": { "type": "string" },
+        "colorway": { "type": "string" },
+        "pattern": { "type": "string" },
+        "index_pad": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "tile": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "tile_width": { "type": "number", "minimum": 1 },
+        "tile_height": { "type": "number", "minimum": 1 },
+        "repeat_x": { "type": "integer" },
+        "repeat_y": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "generators": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "corduroy": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": { "type": { "type": "string" }, "enabled": { "type": "boolean" } }
+        },
+        "weave": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": { "type": { "type": "string" }, "enabled": { "type": "boolean" } }
+        },
+        "palette": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": { "type": { "type": "string" }, "enabled": { "type": "boolean" } }
+        }
+      }
+    },
+    "exports": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "preset": { "type": "string" },
+        "formats": { "type": "array", "items": { "type": "string" } },
+        "include_metadata": { "type": "boolean" },
+        "toggles": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "include_svg": { "type": "boolean" },
+            "include_png": { "type": "boolean" }
+          }
+        }
+      }
+    },
+    "packaging": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": { "mode": { "type": "string" }, "bundle_name": { "type": "string" } }
+    },
+    "constraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "min_feature_mm": { "type": "number", "minimum": 0 },
+        "max_shapes_per_tile": { "type": "integer", "minimum": 0 }
+      }
+    }
+  }
+}

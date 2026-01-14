@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "validate:base": "node dist/index.js validate-base"
+    "validate:base": "node dist/index.js validate-base",
+    "validate:preset": "node dist/index.js validate-preset"
   },
   "devDependencies": {
     "@types/node": "^25.0.8",

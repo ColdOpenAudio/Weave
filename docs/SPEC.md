@@ -14,10 +14,41 @@ Configs are layered as a **base** document with optional **preset** overrides. T
 
 **Merge rules (explicit):**
 
-- Objects merge recursively by key.
-- Scalars replace the base value at the same key.
-- Arrays replace the base array entirely (no element-wise merging).
-- Keys set to `null` in a preset are rejected (no deletion in presets).
+- **Precedence**: Preset values override base values at the same key path. If a key is not present in the preset, the base value is used.
+- **Objects**: Merge recursively by key. Nested objects are merged deeply.
+- **Scalars**: Replace the base value entirely.
+- **Arrays**: Replace the base array entirely (no element-wise merging).
+- **Allowed override paths**: All keys defined in the base config except `spec_version` (which must remain unchanged).
+- **Forbidden fields**: `spec_version` cannot be overridden. New top-level keys cannot be added. Keys set to `null` in a preset are rejected (no deletion).
+- **Array policy**: Arrays are replaced wholesale; presets cannot append or modify individual array elements.
+
+**Minimal example: base + preset → effective config**
+
+Base config:
+```json
+{
+  "spec_version": "1.0",
+  "naming": { "project_name": "weave", "version": "1.0" },
+  "exports": { "formats": ["svg"] }
+}
+```
+
+Preset:
+```json
+{
+  "naming": { "version": "2.0" },
+  "exports": { "formats": ["png"] }
+}
+```
+
+Effective config (after merge):
+```json
+{
+  "spec_version": "1.0",
+  "naming": { "project_name": "weave", "version": "2.0" },
+  "exports": { "formats": ["png"] }
+}
+```
 
 ### Parameter Schema
 

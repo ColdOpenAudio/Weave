@@ -35,21 +35,21 @@
 ## Step 10–12 (Next Planned)
 
 ### Step 10 — Preset schema + validate-preset
-- [ ] Create `configs/schema.preset.json` (override-only, strict allowlist, disallow seed/spec_version)
-- [ ] Add CLI command `validate-preset <presetPath>`
-- [ ] Add npm script `validate:preset`
-- [ ] Ensure preset validation rejects unknown keys and forbidden overrides
+- [x] Create `configs/schema.preset.json` (override-only, strict allowlist, disallow seed/spec_version)
+- [x] Add CLI command `validate-preset <presetPath>`
+- [x] Add npm script `validate:preset`
+- [x] Ensure preset validation rejects unknown keys and forbidden overrides
 
 ### Step 11 — SPEC: merge rules only
-- [ ] Document base + preset merge precedence, allowed override paths, forbidden fields
-- [ ] Define array policy (replace vs merge) explicitly
-- [ ] Provide a minimal example: base + preset → effective config
+- [x] Document base + preset merge precedence, allowed override paths, forbidden fields
+- [x] Define array policy (replace vs merge) explicitly
+- [x] Provide a minimal example: base + preset → effective config
 
 ### Step 12 — validate-effective (merge + validate)
-- [ ] Implement secure merge routine (whitelist deep-merge targets, arrays replaced)
-- [ ] Add CLI `validate-effective --base <path> --preset <path>`
-- [ ] Validate effective config against base schema
-- [ ] Fail closed on ambiguity, missing keys, forbidden overrides
+- [x] Implement secure merge routine (whitelist deep-merge targets, arrays replaced)
+- [x] Add CLI `validate-effective --base <path> --preset <path>`
+- [x] Validate effective config against base schema
+- [x] Fail closed on ambiguity, missing keys, forbidden overrides
 
 ---
 
