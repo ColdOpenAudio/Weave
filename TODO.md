@@ -18,8 +18,17 @@
 
 ## Spec Lock Deliverables
 
-- [ ] Ensure docs/SPEC.md includes all required sections and remains consistent with configs and schemas
-- [ ] Add a “Spec locked” section in TODO with explicit sign-off criteria (keys finalized, constraints documented, schema validates base, validate-base works)
+- [x] Ensure docs/SPEC.md includes all required sections and remains consistent with configs and schemas
+- [x] Add a “Spec locked” section in TODO with explicit sign-off criteria (keys finalized, constraints documented, schema validates base, validate-base works)
+
+---
+
+## Spec Locked
+
+- [x] Keys finalized: All configuration keys are defined in `configs/base.json` and enforced by `configs/schema.base.json`.
+- [x] Constraints documented: All constraints (e.g., `tile.repeat_x = 4`, `additionalProperties: false`) are documented in `docs/SPEC.md` and enforced in the schema.
+- [x] Schema validates base: `npm run validate:base -- configs/base.json` exits 0 and confirms validity.
+- [x] validate-base works: CLI command properly rejects invalid configs (e.g., `repeat_x != 4`) with non-zero exit code.
 
 ---
 
