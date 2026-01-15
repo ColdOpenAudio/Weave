@@ -80,7 +80,7 @@ This section enumerates the configuration parameters present in `configs/base.js
 ### Exports
 
 - `exports.preset` : string (preset selector)
-- `exports.formats` : string[]
+- `exports.formats` : string[] (allowed: `svg`, `pdf`, `eps`, `tiff`, `png`, `jpg`, `webp`)
 - `exports.include_metadata` : boolean
 - `exports.toggles` : object with export toggles (e.g., `include_svg`, `include_png`)
 
@@ -96,80 +96,30 @@ This section enumerates the configuration parameters present in `configs/base.js
 
 The above parameter list is kept intentionally minimal and reflects the keys used in `configs/base.json` in this repository. Unknown keys are rejected by schema validation (see `configs/schema.base.json`).
 
-### Tile
+## Production Guidance
 
-- _No parameters defined._
+- **Bleed**: Include 3-5 mm bleed beyond the final cut edge for printed outputs.
+- **Safe zone**: Keep critical details at least 5 mm inside trim lines.
+- **Resolution**: Target 300 DPI for print exports; use higher for fine detail if needed.
+- **Color policy**: Use `web` for screen proofs and `print` for production exports with ICC workflow.
+- **Production exports**: Target `pdf`, `eps`, and `tiff` for print-ready delivery. EPS requires Ghostscript (`gs`) on PATH.
 
-### Corduroy
+## Preset Examples
 
-- _No parameters defined._
+### Hoodie Panel (repeat across width only)
 
-### Nap/Drift
+```json
+{
+  "tile": { "repeat_x": 4, "repeat_y": 1 },
+  "exports": { "preset": "hoodie-panel", "formats": ["svg", "pdf"] }
+}
+```
 
-- _No parameters defined._
+### All-Over Print (full repeat)
 
-### Weave
-
-- _No parameters defined._
-
-### Palette
-
-- _No parameters defined._
-
-### Exports
-
-- _No parameters defined._
-
-### Packaging
-
-- _No parameters defined._
-
-### Constraints
-
-- _No parameters defined._
-
-## Open Questions
-
-## Parameter Schema
-
-> Source of truth: No `configs/base.json` or preset files are present in the repository at this time; therefore, there are no configuration keys to enumerate. This section is intentionally empty until configuration files are added.
-
-### Global
-
-None.
-
-### Naming
-
-None.
-
-### Tile
-
-None.
-
-### Corduroy
-
-None.
-
-### Nap/Drift
-
-None.
-
-### Weave
-
-None.
-
-### Palette
-
-None.
-
-### Exports
-
-None.
-
-### Packaging
-
-None.
-
-### Constraints
-
-None.
+```json
+{
+  "tile": { "repeat_x": 4, "repeat_y": 4 },
+  "exports": { "preset": "all-over-print", "formats": ["svg", "tiff", "png"] }
+}
+```

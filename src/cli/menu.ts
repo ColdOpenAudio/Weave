@@ -5,6 +5,7 @@ import { selectProjectFolder } from './dialogs.js';
 import { generateFromConfig, packageFromConfig } from './run.js';
 import type { GenerateRunOptions, GenerateResult } from './run.js';
 import { startPreviewServer } from './preview.js';
+import type { PaletteFormat } from '../packaging/palette.js';
 
 export interface MenuOption {
   key: number;
@@ -21,6 +22,7 @@ interface MenuState {
   previewServer: PreviewServerState | null;
   previewInFlight: boolean;
   previewQueuedConfig: any | null;
+  previewOverrides: Record<string, PreviewOverride>;
 }
 
 interface PresetRegistry {
@@ -42,6 +44,11 @@ interface PreviewSettings {
 interface PreviewServerState {
   url: string;
   notify: (filePath: string) => void;
+}
+
+interface PreviewOverride {
+  step: number;
+  intervalMs: number;
 }
 
 const MAIN_MENU_OPTIONS: MenuOption[] = [
@@ -77,7 +84,8 @@ export async function showMainMenu(options?: { projectDir?: string }): Promise<v
     preview,
     previewServer: null,
     previewInFlight: false,
-    previewQueuedConfig: null
+    previewQueuedConfig: null,
+    previewOverrides: {}
   };
 
   while (true) {
@@ -487,7 +495,9 @@ async function runPackage(state: MenuState): Promise<void> {
   const deterministic = await promptBoolean('Deterministic');
   const cleanup = await promptBoolean('Cleanup temp folders');
   const palettePath = await promptString('Palette JSON path (optional)', '');
-  const paletteFormats = await promptList('Palette formats (ase,gpl,json)', ['ase', 'gpl', 'json']);
+  const paletteFormats = parsePaletteFormats(
+    await promptList('Palette formats (ase,gpl,json)', ['ase', 'gpl', 'json'])
+  );
 
   await packageFromConfig(state.config, {
     seed,
@@ -599,7 +609,7 @@ async function selectMenuOption(options: MenuOption[], columns: number, header?:
         return;
       }
 
-      if (key && /^[0-9]$/.test(key.sequence)) {
+      if (key && key.sequence && /^[0-9]$/.test(key.sequence)) {
         const numeric = Number.parseInt(key.sequence, 10);
         const option = options.find((item) => item.key === numeric);
         if (option) {
@@ -757,6 +767,9 @@ async function promptNumberLive(
 
     let buffer = String(fallback);
     let timer: NodeJS.Timeout | null = null;
+    let step = getPreviewStep(state, label);
+    let intervalMs = getPreviewInterval(state, label);
+    let inOverridePrompt = false;
 
     const cleanup = () => {
       if (timer) clearTimeout(timer);
@@ -773,20 +786,20 @@ async function promptNumberLive(
         `${label}\nValue: ${buffer}\nSpace = preview, Enter = save, Esc = cancel, Up/Down = nudge\n`
       );
       if (state.preview.enabled) {
-        process.stdout.write(`Preview interval: ${state.preview.intervalMs} ms\n`);
+        process.stdout.write(`Step: ${step} | Interval: ${intervalMs} ms | Press s/i to adjust\n`);
       } else {
         process.stdout.write('Preview disabled\n');
       }
     };
 
     const schedulePreview = (draft: number) => {
-      if (!state.preview.enabled || state.preview.intervalMs <= 0) {
+      if (!state.preview.enabled || intervalMs <= 0) {
         return;
       }
       if (timer) clearTimeout(timer);
       timer = setTimeout(() => {
         onPreview(draft).catch(() => undefined);
-      }, state.preview.intervalMs);
+      }, intervalMs);
     };
 
     const commit = () => {
@@ -805,10 +818,14 @@ async function promptNumberLive(
       resolve(fallback);
     };
 
-    const onKeypress = (_: string, key: readline.Key) => {
+    const onKeypress = async (_: string, key: readline.Key) => {
       if (key && key.ctrl && key.name === 'c') {
         cleanup();
         process.exit(0);
+      }
+
+      if (inOverridePrompt) {
+        return;
       }
 
       if (key && key.name === 'return') {
@@ -828,14 +845,14 @@ async function promptNumberLive(
       }
       if (key && key.name === 'up') {
         const parsed = Number.parseFloat(buffer) || 0;
-        buffer = String(parsed + 1);
+        buffer = String(parsed + step);
         render();
-        schedulePreview(parsed + 1);
+        schedulePreview(parsed + step);
         return;
       }
       if (key && key.name === 'down') {
         const parsed = Number.parseFloat(buffer) || 0;
-        const next = Math.max(min, parsed - 1);
+        const next = Math.max(min, parsed - step);
         buffer = String(next);
         render();
         schedulePreview(next);
@@ -858,6 +875,54 @@ async function promptNumberLive(
         if (!Number.isNaN(parsed)) {
           schedulePreview(parsed);
         }
+      }
+
+      if (key && key.name === 's') {
+        inOverridePrompt = true;
+        if (process.stdin.isTTY) {
+          process.stdin.setRawMode(false);
+        }
+        const nextStep = await promptLine(`Step size (current ${step}, empty to reset): `);
+        if (!nextStep) {
+          clearPreviewOverride(state, label);
+        } else {
+          const parsed = Number.parseFloat(nextStep);
+          if (!Number.isNaN(parsed) && parsed > 0) {
+            setPreviewOverride(state, label, { step: parsed, intervalMs });
+          }
+        }
+        if (process.stdin.isTTY) {
+          process.stdin.setRawMode(true);
+        }
+        step = getPreviewStep(state, label);
+        intervalMs = getPreviewInterval(state, label);
+        inOverridePrompt = false;
+        render();
+        return;
+      }
+
+      if (key && key.name === 'i') {
+        inOverridePrompt = true;
+        if (process.stdin.isTTY) {
+          process.stdin.setRawMode(false);
+        }
+        const nextInterval = await promptLine(`Interval ms (current ${intervalMs}, empty to reset): `);
+        if (!nextInterval) {
+          clearPreviewOverride(state, label);
+        } else {
+          const parsed = Number.parseFloat(nextInterval);
+          if (!Number.isNaN(parsed) && parsed >= 0) {
+            setPreviewOverride(state, label, { step, intervalMs: parsed });
+          }
+        }
+        if (process.stdin.isTTY) {
+          process.stdin.setRawMode(true);
+        }
+        step = getPreviewStep(state, label);
+        intervalMs = getPreviewInterval(state, label);
+        inOverridePrompt = false;
+        render();
+        return;
       }
     };
 
@@ -937,6 +1002,29 @@ function buildHeader(state: MenuState, title: string): string {
   const dirty = state.dirty ? '*' : '';
   const defaultPreset = state.presets.defaultPath ? path.basename(state.presets.defaultPath) : 'none';
   return `${title}\nConfig: ${configLabel}${dirty}\nProject Dir: ${projectLabel}\nDefault Preset: ${defaultPreset}\n`;
+}
+
+function getPreviewStep(state: MenuState, label: string): number {
+  const override = state.previewOverrides[label];
+  return override?.step ?? 1;
+}
+
+function getPreviewInterval(state: MenuState, label: string): number {
+  const override = state.previewOverrides[label];
+  return override?.intervalMs ?? state.preview.intervalMs;
+}
+
+function setPreviewOverride(state: MenuState, label: string, override: PreviewOverride): void {
+  state.previewOverrides[label] = override;
+}
+
+function clearPreviewOverride(state: MenuState, label: string): void {
+  delete state.previewOverrides[label];
+}
+
+function parsePaletteFormats(formats: string[]): PaletteFormat[] {
+  const allowed: PaletteFormat[] = ['ase', 'gpl', 'json'];
+  return formats.filter((format): format is PaletteFormat => allowed.includes(format as PaletteFormat));
 }
 
 async function addPresetPath(state: MenuState): Promise<void> {

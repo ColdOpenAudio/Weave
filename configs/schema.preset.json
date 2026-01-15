@@ -51,7 +51,13 @@
       "additionalProperties": false,
       "properties": {
         "preset": { "type": "string" },
-        "formats": { "type": "array", "items": { "type": "string" } },
+        "formats": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["svg", "pdf", "eps", "tiff", "png", "jpg", "webp"]
+          }
+        },
         "include_metadata": { "type": "boolean" },
         "toggles": {
           "type": "object",

@@ -2,12 +2,11 @@ import fs from 'fs';
 import path from 'path';
 import process from 'process';
 import Ajv from 'ajv';
-import { generateCompositeSVG } from './generators/composition.js';
-import { exportComposition, ExportOptions } from './export/index.js';
 import { createPackage } from './packaging/index.js';
 import type { PaletteColor, PaletteFormat } from './packaging/palette.js';
 import { selectProjectFolder } from './cli/dialogs.js';
 import { showMainMenu } from './cli/menu.js';
+import { generateFromConfig } from './cli/run.js';
 
 function fail(msg: string, code = 1): never {
   console.error(msg);
@@ -46,7 +45,11 @@ async function run() {
     console.log('  node dist/index.js validate-base <configPath>');
     console.log('  node dist/index.js validate-preset <presetPath>');
     console.log('  node dist/index.js validate-effective --base <basePath> --preset <presetPath>');
+    console.log('  node dist/index.js validate --base <configPath>');
+    console.log('  node dist/index.js validate --preset <presetPath>');
+    console.log('  node dist/index.js validate --effective --base <basePath> --preset <presetPath>');
     console.log('  node dist/index.js generate --config <configPath> --seed <number> [--output-dir <dir>] [--export <format>] [--color-policy <policy>] [--dpi <number>] [--separations]');
+    console.log('  node dist/index.js batch --config <configPath> --seeds <list> [--seed-file <path>] [--output-dir <dir>] [--export <format>] [--color-policy <policy>] [--dpi <number>] [--separations] [--manifest <path>]');
     console.log('  node dist/index.js init');
     console.log('  node dist/index.js menu');
     console.log('  node dist/index.js package --config <configPath> --seed <number> [--output-dir <dir>] [--output-zip <path>] [--file <path>] [--palette <path>] [--palette-formats <list>] [--include-print-spec] [--deterministic] [--cleanup]');
@@ -57,100 +60,14 @@ async function run() {
   if (cmd === 'validate-base') {
     const cfgArg = argv[1];
     if (!cfgArg) fail('No config path provided for validate-base', 2);
-
-    const repoRoot = process.cwd();
-    const resolved = path.resolve(repoRoot, cfgArg);
-    if (!resolved.startsWith(repoRoot)) fail('Config path must be inside repository', 2);
-
-    let rawCfg: string;
-    try {
-      rawCfg = fs.readFileSync(resolved, 'utf8');
-    } catch (err) {
-      fail(`Failed to read config: ${String(err)}`, 2);
-    }
-
-    let cfgObj: unknown;
-    try {
-      cfgObj = JSON.parse(rawCfg);
-    } catch (err) {
-      fail(`Failed to parse JSON: ${String(err)}`, 2);
-    }
-
-    const schemaPath = path.resolve(repoRoot, 'configs', 'schema.base.json');
-    let schemaRaw: string;
-    try {
-      schemaRaw = fs.readFileSync(schemaPath, 'utf8');
-    } catch (err) {
-      fail(`Failed to read schema: ${String(err)}`, 2);
-    }
-
-    let schemaObj: unknown;
-    try {
-      schemaObj = JSON.parse(schemaRaw);
-    } catch (err) {
-      fail(`Failed to parse schema JSON: ${String(err)}`, 2);
-    }
-
-    const ajv = new Ajv({ allErrors: true, strict: true });
-    const validate = ajv.compile(schemaObj as object);
-    const valid = validate(cfgObj);
-    if (!valid) {
-      console.error('Config validation failed:');
-      console.error(validate.errors);
-      process.exit(2);
-    }
-
-    console.log('Config is valid according to schema.base.json');
+    validateBaseConfig(cfgArg);
     process.exit(0);
   }
 
   if (cmd === 'validate-preset') {
     const cfgArg = argv[1];
     if (!cfgArg) fail('No preset path provided for validate-preset', 2);
-
-    const repoRoot = process.cwd();
-    const resolved = path.resolve(repoRoot, cfgArg);
-    if (!resolved.startsWith(repoRoot)) fail('Preset path must be inside repository', 2);
-
-    let rawCfg: string;
-    try {
-      rawCfg = fs.readFileSync(resolved, 'utf8');
-    } catch (err) {
-      fail(`Failed to read preset: ${String(err)}`, 2);
-    }
-
-    let cfgObj: unknown;
-    try {
-      cfgObj = JSON.parse(rawCfg);
-    } catch (err) {
-      fail(`Failed to parse JSON: ${String(err)}`, 2);
-    }
-
-    const schemaPath = path.resolve(repoRoot, 'configs', 'schema.preset.json');
-    let schemaRaw: string;
-    try {
-      schemaRaw = fs.readFileSync(schemaPath, 'utf8');
-    } catch (err) {
-      fail(`Failed to read schema: ${String(err)}`, 2);
-    }
-
-    let schemaObj: unknown;
-    try {
-      schemaObj = JSON.parse(schemaRaw);
-    } catch (err) {
-      fail(`Failed to parse schema JSON: ${String(err)}`, 2);
-    }
-
-    const ajv = new Ajv({ allErrors: true, strict: true });
-    const validate = ajv.compile(schemaObj as object);
-    const valid = validate(cfgObj);
-    if (!valid) {
-      console.error('Preset validation failed:');
-      console.error(validate.errors);
-      process.exit(2);
-    }
-
-    console.log('Preset is valid according to schema.preset.json');
+    validatePresetConfig(cfgArg);
     process.exit(0);
   }
 
@@ -170,69 +87,48 @@ async function run() {
     }
     if (!basePath || !presetPath) fail('Both --base and --preset paths are required for validate-effective', 2);
 
-    const repoRoot = process.cwd();
-
-    // Load base
-    const baseResolved = path.resolve(repoRoot, basePath);
-    if (!baseResolved.startsWith(repoRoot)) fail('Base path must be inside repository', 2);
-    let baseRaw: string;
-    try {
-      baseRaw = fs.readFileSync(baseResolved, 'utf8');
-    } catch (err) {
-      fail(`Failed to read base config: ${String(err)}`, 2);
-    }
-    let baseObj: any;
-    try {
-      baseObj = JSON.parse(baseRaw);
-    } catch (err) {
-      fail(`Failed to parse base JSON: ${String(err)}`, 2);
-    }
-
-    // Load preset
-    const presetResolved = path.resolve(repoRoot, presetPath);
-    if (!presetResolved.startsWith(repoRoot)) fail('Preset path must be inside repository', 2);
-    let presetRaw: string;
-    try {
-      presetRaw = fs.readFileSync(presetResolved, 'utf8');
-    } catch (err) {
-      fail(`Failed to read preset: ${String(err)}`, 2);
-    }
-    let presetObj: any;
-    try {
-      presetObj = JSON.parse(presetRaw);
-    } catch (err) {
-      fail(`Failed to parse preset JSON: ${String(err)}`, 2);
-    }
-
-    // Merge
-    const effectiveObj = mergeConfigs(baseObj, presetObj);
-
-    // Validate against base schema
-    const schemaPath = path.resolve(repoRoot, 'configs', 'schema.base.json');
-    let schemaRaw: string;
-    try {
-      schemaRaw = fs.readFileSync(schemaPath, 'utf8');
-    } catch (err) {
-      fail(`Failed to read schema: ${String(err)}`, 2);
-    }
-    let schemaObj: unknown;
-    try {
-      schemaObj = JSON.parse(schemaRaw);
-    } catch (err) {
-      fail(`Failed to parse schema JSON: ${String(err)}`, 2);
-    }
-
-    const ajv = new Ajv({ allErrors: true, strict: true });
-    const validate = ajv.compile(schemaObj as object);
-    const valid = validate(effectiveObj);
-    if (!valid) {
-      console.error('Effective config validation failed:');
-      console.error(validate.errors);
-      process.exit(2);
-    }
-
-    console.log('Effective config is valid according to schema.base.json');
+    validateEffectiveConfig(basePath, presetPath);
     process.exit(0);
+  }
+
+  if (cmd === 'validate') {
+    let basePath = '';
+    let presetPath = '';
+    let effective = false;
+
+    for (let i = 1; i < argv.length; i++) {
+      if (argv[i] === '--base' && argv[i + 1]) {
+        basePath = argv[i + 1];
+        i++;
+      } else if (argv[i] === '--preset' && argv[i + 1]) {
+        presetPath = argv[i + 1];
+        i++;
+      } else if (argv[i] === '--effective') {
+        effective = true;
+      } else {
+        fail(`Unknown argument: ${argv[i]}`, 2);
+      }
+    }
+
+    if (effective) {
+      if (!basePath || !presetPath) {
+        fail('Both --base and --preset paths are required for --effective', 2);
+      }
+      validateEffectiveConfig(basePath, presetPath);
+      process.exit(0);
+    }
+
+    if (basePath) {
+      validateBaseConfig(basePath);
+      process.exit(0);
+    }
+
+    if (presetPath) {
+      validatePresetConfig(presetPath);
+      process.exit(0);
+    }
+
+    fail('Provide --base or --preset (or --effective with both)', 2);
   }
 
   if (cmd === 'generate') {
@@ -258,7 +154,7 @@ async function run() {
         exportFormat = argv[i + 1];
         i++;
       } else if (argv[i] === '--color-policy' && argv[i + 1]) {
-        colorPolicy = argv[i + 1] as 'web' | 'print';
+        colorPolicy = parseColorPolicy(argv[i + 1]);
         i++;
       } else if (argv[i] === '--dpi' && argv[i + 1]) {
         dpi = parseInt(argv[i + 1]);
@@ -272,50 +168,89 @@ async function run() {
     if (seed <= 0) fail('Seed must be a positive integer', 2);
 
     const cfg = JSON.parse(fs.readFileSync(configPath, 'utf8'));
-    cfg.seed = seed;
-    // Map to CompositionConfig
-    const compConfig = {
-      tile: {
-        width: cfg.tile.tile_width,
-        height: cfg.tile.tile_height,
-        seed: cfg.seed,
-        ribProfile: { width: 2, shadowColor: '#333', midColor: '#666', highlightColor: '#999' },
-        napDensity: 0.1,
-        driftBands: 3
-      },
-      weave: {
-        width: cfg.tile.tile_width,
-        height: cfg.tile.tile_height,
-        seed: cfg.seed,
-        eventDensity: 0.02,
-        minFeatureMm: cfg.constraints?.min_feature_mm || 1,
-        maxShapesPerTile: cfg.constraints?.max_shapes_per_tile || 1000,
-        xWrap: true,
-        yWrap: false
-      },
-      repeatX: cfg.tile.repeat_x
-    };
-    const svg = generateCompositeSVG(compConfig);
+    await generateFromConfig(cfg, {
+      seed,
+      outputDir,
+      exportFormat: exportFormat || undefined,
+      colorPolicy,
+      dpi,
+      enableSeparations
+    });
 
-    fs.mkdirSync(outputDir, { recursive: true });
-    const svgPath = path.join(outputDir, `fabric-${seed}.svg`);
-    fs.writeFileSync(svgPath, svg);
-    console.log(`Generated SVG: ${svgPath}`);
+    process.exit(0);
+  }
 
-    if (exportFormat) {
-      const exportOptions: ExportOptions = {
-        format: exportFormat as any,
-        colorPolicy,
-        dpi,
-        enableSeparations,
-        outputDir,
-        seed
-      };
-      await exportComposition(svg, exportOptions);
-      const ext = exportFormat === 'jpg' ? 'jpg' : exportFormat;
-      console.log(`Exported to ${exportFormat}: ${path.join(outputDir, `fabric-${seed}.${ext}`)}`);
+  if (cmd === 'batch') {
+    let configPath = '';
+    let outputDir = './output';
+    let exportFormat: string | undefined;
+    let colorPolicy: 'web' | 'print' = 'web';
+    let dpi = 300;
+    let enableSeparations = false;
+    let seedsArg = '';
+    let seedFile = '';
+    let manifestPath = '';
+
+    for (let i = 1; i < argv.length; i++) {
+      if (argv[i] === '--config' && argv[i + 1]) {
+        configPath = argv[i + 1];
+        i++;
+      } else if (argv[i] === '--seeds' && argv[i + 1]) {
+        seedsArg = argv[i + 1];
+        i++;
+      } else if (argv[i] === '--seed-file' && argv[i + 1]) {
+        seedFile = argv[i + 1];
+        i++;
+      } else if (argv[i] === '--output-dir' && argv[i + 1]) {
+        outputDir = argv[i + 1];
+        i++;
+      } else if (argv[i] === '--export' && argv[i + 1]) {
+        exportFormat = argv[i + 1];
+        i++;
+      } else if (argv[i] === '--color-policy' && argv[i + 1]) {
+        colorPolicy = parseColorPolicy(argv[i + 1]);
+        i++;
+      } else if (argv[i] === '--dpi' && argv[i + 1]) {
+        dpi = parseInt(argv[i + 1]);
+        i++;
+      } else if (argv[i] === '--separations') {
+        enableSeparations = true;
+      } else if (argv[i] === '--manifest' && argv[i + 1]) {
+        manifestPath = argv[i + 1];
+        i++;
+      } else {
+        fail(`Unknown argument: ${argv[i]}`, 2);
+      }
     }
 
+    if (!configPath) fail('No config path provided for batch', 2);
+    const seeds = parseSeedList(seedsArg, seedFile);
+    if (seeds.length === 0) {
+      fail('Provide --seeds or --seed-file with at least one seed', 2);
+    }
+
+    const cfg = JSON.parse(fs.readFileSync(configPath, 'utf8'));
+    fs.mkdirSync(outputDir, { recursive: true });
+    const manifestRows: string[] = ['seed,svg_path,export_path'];
+
+    for (const seed of seeds) {
+      const result = await generateFromConfig(cfg, {
+        seed,
+        outputDir,
+        exportFormat: exportFormat || undefined,
+        colorPolicy,
+        dpi,
+        enableSeparations
+      });
+      const exportPath = exportFormat
+        ? path.join(outputDir, `fabric-${seed}.${exportFormat === 'jpg' ? 'jpg' : exportFormat}`)
+        : '';
+      manifestRows.push(`${seed},${result.svgPath},${exportPath}`);
+    }
+
+    const outputManifest = manifestPath || path.join(outputDir, 'batch-manifest.csv');
+    fs.writeFileSync(outputManifest, `${manifestRows.join('\n')}\n`);
+    console.log(`Batch manifest: ${outputManifest}`);
     process.exit(0);
   }
 
@@ -421,6 +356,101 @@ async function run() {
 }
 
 run().catch((e) => fail(`Unhandled error: ${String(e)}`, 99));
+
+function parseColorPolicy(value: string): 'web' | 'print' {
+  if (value === 'web' || value === 'print') {
+    return value;
+  }
+  fail(`Invalid color policy: ${value}. Use "web" or "print".`, 2);
+}
+
+function parseSeedList(seedsArg: string, seedFile: string): number[] {
+  const seeds: number[] = [];
+  if (seedsArg) {
+    const parts = seedsArg.split(',').map((value) => value.trim()).filter(Boolean);
+    for (const part of parts) {
+      const parsed = Number.parseInt(part, 10);
+      if (!Number.isNaN(parsed) && parsed > 0) {
+        seeds.push(parsed);
+      }
+    }
+  }
+  if (seedFile) {
+    const content = fs.readFileSync(seedFile, 'utf8');
+    for (const line of content.split(/\r?\n/)) {
+      const trimmed = line.trim();
+      if (!trimmed) continue;
+      const parsed = Number.parseInt(trimmed, 10);
+      if (!Number.isNaN(parsed) && parsed > 0) {
+        seeds.push(parsed);
+      }
+    }
+  }
+  return Array.from(new Set(seeds));
+}
+
+function validateBaseConfig(configPath: string): void {
+  const repoRoot = process.cwd();
+  const resolved = resolveRepoPath(repoRoot, configPath, 'Config');
+  const cfgObj = readJsonFile(resolved, 'config');
+  const schemaObj = readJsonFile(path.resolve(repoRoot, 'configs', 'schema.base.json'), 'schema');
+  validateAgainstSchema(schemaObj, cfgObj, 'Config');
+  console.log('Config is valid according to schema.base.json');
+}
+
+function validatePresetConfig(presetPath: string): void {
+  const repoRoot = process.cwd();
+  const resolved = resolveRepoPath(repoRoot, presetPath, 'Preset');
+  const cfgObj = readJsonFile(resolved, 'preset');
+  const schemaObj = readJsonFile(path.resolve(repoRoot, 'configs', 'schema.preset.json'), 'schema');
+  validateAgainstSchema(schemaObj, cfgObj, 'Preset');
+  console.log('Preset is valid according to schema.preset.json');
+}
+
+function validateEffectiveConfig(basePath: string, presetPath: string): void {
+  const repoRoot = process.cwd();
+  const baseResolved = resolveRepoPath(repoRoot, basePath, 'Base');
+  const presetResolved = resolveRepoPath(repoRoot, presetPath, 'Preset');
+  const baseObj = readJsonFile(baseResolved, 'base');
+  const presetObj = readJsonFile(presetResolved, 'preset');
+  const effectiveObj = mergeConfigs(baseObj, presetObj);
+  const schemaObj = readJsonFile(path.resolve(repoRoot, 'configs', 'schema.base.json'), 'schema');
+  validateAgainstSchema(schemaObj, effectiveObj, 'Effective config');
+  console.log('Effective config is valid according to schema.base.json');
+}
+
+function resolveRepoPath(repoRoot: string, inputPath: string, label: string): string {
+  const resolved = path.resolve(repoRoot, inputPath);
+  if (!resolved.startsWith(repoRoot)) {
+    fail(`${label} path must be inside repository`, 2);
+  }
+  return resolved;
+}
+
+function readJsonFile(filePath: string, label: string): any {
+  let raw: string;
+  try {
+    raw = fs.readFileSync(filePath, 'utf8');
+  } catch (err) {
+    fail(`Failed to read ${label}: ${String(err)}`, 2);
+  }
+  try {
+    return JSON.parse(raw);
+  } catch (err) {
+    fail(`Failed to parse ${label} JSON: ${String(err)}`, 2);
+  }
+}
+
+function validateAgainstSchema(schemaObj: object, data: any, label: string): void {
+  const ajv = new Ajv({ allErrors: true, strict: true });
+  const validate = ajv.compile(schemaObj);
+  const valid = validate(data);
+  if (!valid) {
+    console.error(`${label} validation failed:`);
+    console.error(validate.errors);
+    process.exit(2);
+  }
+}
 
 function resolvePackageFiles(outputDir: string, fileArgs: string[], outputZipPath: string): { path: string; type: string }[] {
   const files: { path: string; type: string }[] = [];

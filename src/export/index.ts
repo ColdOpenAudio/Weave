@@ -10,10 +10,14 @@ import { exportRaster } from './raster';
 
 import { extractSeparations } from './separations';
 
+import fs from 'fs';
 import * as path from 'path';
 
 // Registry of format handlers for easy extension
 const formatHandlers: Record<string, (svg: string, options: ExportOptions, outputPath: string) => Promise<void>> = {
+  'svg': async (svg, options, outputPath) => {
+    await fs.promises.writeFile(outputPath, svg);
+  },
   'pdf': async (svg, options, outputPath) => {
     await exportPDF(svg, outputPath);
   },
@@ -100,6 +104,8 @@ function getExtension(format: string): string {
     'jpg': 'jpg',
 
     'webp': 'webp',
+
+    'svg': 'svg',
 
   };
 

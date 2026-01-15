@@ -78,9 +78,9 @@
 
 ## Run Readiness (Remaining)
 
-- [ ] Finalize production export targets (PDF/TIFF/EPS) needed for print-ready runs
+- [x] Finalize production export targets (PDF/TIFF/EPS) needed for print-ready runs
 - [ ] Add verification/guards for safe generation (seams, snapshot checks, complexity limits)
-- [ ] Document end-to-end run commands (init/menu/preview/generate/package) in README/docs
+- [x] Document end-to-end run commands (init/menu/preview/generate/package) in README/docs
 - [ ] Package installers for macOS/Windows/Linux (DMG/MSI/DEB/RPM or equivalent)
 
 ---
@@ -90,7 +90,7 @@
 - [ ] Vector exports: SVG variants, PDF/X-1a, PDF/X-4, EPS
 - [ ] Raster exports: TIFF 300, PNG 300, JPG previews, repeat swatches
 - [ ] Optional separations: spot sets + combined proof
-- [ ] Color policies documented and enforced (working vs web conversion)
+- [x] Color policies documented and enforced (working vs web conversion)
 
 ---
 
@@ -116,22 +116,22 @@
 ## CLI UX (Deferred)
 
 - [x] `generate` command (config path, seed override, output dir)
-- [ ] `batch` command (seed list generation, manifest CSV)
-- [ ] `validate` umbrella command (base/preset/effective)
+- [x] `batch` command (seed list generation, manifest CSV)
+- [x] `validate` umbrella command (base/preset/effective)
 - [x] `package` command (output zip, palette options, deterministic flag)
 - [x] `init` command (native folder dialog for project folder)
 - [x] Interactive menu (multi-column, arrow + numeric input)
 - [x] Live preview server (auto-open browser, auto-reload on updates)
 - [x] Multi-preset registry (add/load/remove/default preset)
-- [ ] Per-field preview increments/step sizes for fine-tuning
+- [x] Per-field preview increments/step sizes for fine-tuning
 
 ---
 
 ## Documentation (Deferred)
 
-- [ ] Finalize docs/SPEC.md as the authoritative contract
-- [ ] Add production guidance: bleed, safe zones, print method considerations
-- [ ] Add examples for hoodie panel vs all-over-print presets
+- [x] Finalize docs/SPEC.md as the authoritative contract
+- [x] Add production guidance: bleed, safe zones, print method considerations
+- [x] Add examples for hoodie panel vs all-over-print presets
 
 ---
 
@@ -158,17 +158,10 @@
 - Add seam verification swatch generation (2×2 or 4×2)
 - Add deterministic snapshot testing for known seeds
 - Add robust error taxonomy and fail-closed behavior across all commands
-- Add `batch` command (seed list generation, manifest CSV)
-- Add `validate` umbrella command (base/preset/effective)
-- Add per-field preview increments/step sizes in the CLI menu
 - Plan and implement installer packaging (macOS/Windows/Linux)
-- Finalize docs/SPEC.md as the authoritative contract
-- Add production guidance: bleed, safe zones, print method considerations
-- Add examples for hoodie panel vs all-over-print presets
 - Vector exports: SVG variants, PDF/X-1a, PDF/X-4, EPS
 - Raster exports: TIFF 300, PNG 300, JPG previews, repeat swatches
 - Optional separations: spot sets + combined proof
-- Color policies documented and enforced (working vs web conversion)
 
 # Risks
 
